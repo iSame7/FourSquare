@@ -7,8 +7,16 @@
 //
 
 class MapPresenter: MapPresenting {
+    private weak var view: MapView?
+    private let mapInteractor: MapInteracting
+    
+    init(view: MapView, mapInteractor: MapInteracting) {
+        self.view = view
+        self.mapInteractor = mapInteractor
+    }
     
     func viewDidLoad() {
+        
     }
 }
 

@@ -7,5 +7,5 @@
 //
 
 protocol MapPresenting {
-    func viewDidLoad()
+    func viewDidLoad()    
 }
