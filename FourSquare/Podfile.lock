@@ -1,16 +1,24 @@
 PODS:
-  - Swinject (2.4.1)
+  - Alamofire (4.8.2)
+  - Nuke (7.6)
+  - Swinject (2.6.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.8.0)
+  - Nuke (= 7.6)
   - Swinject (~> 2.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Nuke
     - Swinject
 
 SPEC CHECKSUMS:
-  Swinject: f7f15a9672e99328c1f07f277091087917215700
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Nuke: aa1c6a5919b543debe814530881f2fccb58c26d4
+  Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: 56f3ba8aa3e785e9a577905478aedf425f77a681
+PODFILE CHECKSUM: dbab6b974da233d598b8b01decda22496c6e8221
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

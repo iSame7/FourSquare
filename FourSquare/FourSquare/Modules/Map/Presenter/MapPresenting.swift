@@ -6,6 +6,8 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
-protocol MapPresenting {
-    func viewDidLoad()    
+protocol MapPresenting: class {
+    func viewDidLoad()
+    func getRestaurantsAround(coordinate: String)
+    func getPhotos(venueId: String)
 }

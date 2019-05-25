@@ -16,5 +16,5 @@ struct Location: Codable {
     let cc: String?
     let city: String?
     let state: String?
-    let country: String 
+    let country: String?
 }

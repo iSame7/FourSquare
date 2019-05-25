@@ -9,9 +9,9 @@
 struct Venue: Codable {
     let id: String
     let name: String
-    let contact: Contact
+    let contact: Contact?
     let location: Location
     let categories: [Category]
-    let verified: Bool
+    let verified: Bool?
     let url: String?
 }

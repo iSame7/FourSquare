@@ -12,19 +12,10 @@ extension Container {
     static let shared: Container = {
         let c = Container()
         
-        c.register(MapView.self, factory: { _ in
-            MapViewController()
+        c.register(MapBuilding.self, factory: { r in
+            MapBuilder(container: c)
         }).inObjectScope(.container)
         
-        c.register(MapInteracting.self, factory: { _ in
-            MapInteractor()
-        }).inObjectScope(.container)
-
-        c.register(MapPresenting.self, factory: { r in
-                MapPresenter(view: r.resolve(MapView.self)!, mapInteractor: r.resolve(MapInteracting.self)!)
-
-        }).inObjectScope(.container)
-
         return c 
     }()
 }

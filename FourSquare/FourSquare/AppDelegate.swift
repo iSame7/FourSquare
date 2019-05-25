@@ -7,15 +7,20 @@
 //
 
 import UIKit
+import Swinject
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var mapBuilder: MapBuilding!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        window =  UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        if let mapBuilder = Container.shared.resolve(MapBuilding.self), let window = self.window {
+            window.rootViewController = mapBuilder.buildMapModule()?.viewController
+        }
         return true
     }
 

@@ -11,20 +11,25 @@ import CoreLocation
 import UIKit
 import MapKit
 
-class LocationService: NSObject {
-    private override init() {
+protocol LocationServiceChecking {
+    func retuestAuthorization()
+    func requestUserLocation(completion: @escaping UserLocationBlock)
+}
+
+class LocationService: NSObject, LocationServiceChecking {
+    private let locationManager: CLLocationManager!
+    private var status: CLAuthorizationStatus!
+    private var locationUpdateCompletion: UserLocationBlock!
+    
+    required init(locationManager: CLLocationManager) {
+        self.locationManager = locationManager
         super.init()
-        locationManager = CLLocationManager()
         locationManager.delegate = self
     }
-    static let shared = LocationService()
-    private var locationManager: CLLocationManager!
 }
 
 extension LocationService {
-    public func checkForLocationServices() -> CLAuthorizationStatus {
-        var status: CLAuthorizationStatus!
-        
+    func retuestAuthorization() {
         if CLLocationManager.locationServicesEnabled() {
             print("location services available")
             switch CLLocationManager.authorizationStatus() {
@@ -34,7 +39,7 @@ extension LocationService {
             case .denied:
                 status = CLAuthorizationStatus.denied
                 //opens phone Settings so user can authorize permission
-                guard let validSettingsURL: URL = URL(string: UIApplication.openSettingsURLString) else {return status}
+                guard let validSettingsURL: URL = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(validSettingsURL, options: [:], completionHandler: nil)
             case .authorizedWhenInUse:
                 status = CLAuthorizationStatus.authorizedWhenInUse
@@ -42,24 +47,17 @@ extension LocationService {
                 status = CLAuthorizationStatus.authorizedAlways
             case .restricted:
                 status = CLAuthorizationStatus.restricted
-                guard let validSettingsURL: URL = URL(string: UIApplication.openSettingsURLString) else {return status}
+                guard let validSettingsURL: URL = URL(string: UIApplication.openSettingsURLString) else { return }
                 UIApplication.shared.open(validSettingsURL, options: [:], completionHandler: nil)
             }
         }
         else {
             print("location services NOT available")
-            print("update UI to show location is not available")
         }
-        return status
     }
-}
-
-//MARK: CLLocationManager Delegate
-extension LocationService: CLLocationManagerDelegate {
     
-    func determineMyLocation() {
-        locationManager = CLLocationManager()
-        locationManager.delegate = self
+    func requestUserLocation( completion: @escaping UserLocationBlock) {
+        locationUpdateCompletion = completion
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
         
@@ -67,12 +65,15 @@ extension LocationService: CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
         }
     }
-    
-    
+}
+
+//MARK: CLLocationManager Delegate
+extension LocationService: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let location = locations.last else {
-            print("no locations")
-            return }
+        guard let location = locations.last else { return }
+        
+        locationUpdateCompletion(Location(lat: location.coordinate.latitude, lng: location.coordinate.longitude, address: nil, crossStreet: nil, distance: nil, postalCode: nil, cc: nil, city: nil, state: nil, country: nil))
+        locationManager.delegate = nil
     }
     
     func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
