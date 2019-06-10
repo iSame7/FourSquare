@@ -44,6 +44,9 @@
 		50327BDF22AE8DDB00166098 /* TipsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD822AE8DDB00166098 /* TipsBuilder.swift */; };
 		50327BE022AE8DDB00166098 /* TipsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD922AE8DDB00166098 /* TipsInteractor.swift */; };
 		50327BE322AE906800166098 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BE222AE906800166098 /* Tip.swift */; };
+		50327BEC22AECD0C00166098 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BEB22AECD0C00166098 /* Transition.swift */; };
+		50327BEE22AED6A000166098 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BED22AED6A000166098 /* Presentable.swift */; };
+		50327BF022AED6F000166098 /* UIViewController+Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BEF22AED6F000166098 /* UIViewController+Presentable.swift */; };
 		5039305F2252B273004207C0 /* MapViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5039305E2252B273004207C0 /* MapViewable.swift */; };
 		503930622252B2D1004207C0 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503930612252B2D1004207C0 /* MapViewModel.swift */; };
 		503930642252B33D004207C0 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503930632252B33D004207C0 /* Venue.swift */; };
@@ -150,6 +153,9 @@
 		50327BD822AE8DDB00166098 /* TipsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsBuilder.swift; sourceTree = "<group>"; };
 		50327BD922AE8DDB00166098 /* TipsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsInteractor.swift; sourceTree = "<group>"; };
 		50327BE222AE906800166098 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
+		50327BEB22AECD0C00166098 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
+		50327BED22AED6A000166098 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
+		50327BEF22AED6F000166098 /* UIViewController+Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Presentable.swift"; sourceTree = "<group>"; };
 		5039305E2252B273004207C0 /* MapViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewable.swift; sourceTree = "<group>"; };
 		503930612252B2D1004207C0 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		503930632252B33D004207C0 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
@@ -487,6 +493,22 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		50327BE922AECCCD00166098 /* Map Handler */ = {
+			isa = PBXGroup;
+			children = (
+				50E2798722AD6CF6006A0634 /* MapURLHandler.swift */,
+			);
+			path = "Map Handler";
+			sourceTree = "<group>";
+		};
+		50327BEA22AECCEC00166098 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				50327BEB22AECD0C00166098 /* Transition.swift */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
 		50415A072299ED8C00452037 /* Router */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +549,7 @@
 				504AE8342287173D00F1D869 /* NSObject+Util.swift */,
 				5086811A2291BAF80055B0A1 /* UIImage+Glyph.swift */,
 				5064D886229AD3E000BDFD32 /* UINavigationController+NavigationControlling.swift */,
+				50327BEF22AED6F000166098 /* UIViewController+Presentable.swift */,
 				500986A222A120E30029AA13 /* UIView+nib.swift */,
 				5029DBE422A161C900A116EE /* UIView+Gradient.swift */,
 				5029DBED22A4461100A116EE /* FloatingPoint+Utilities.swift */,
@@ -538,6 +561,7 @@
 			isa = PBXGroup;
 			children = (
 				5064D884229AD33B00BDFD32 /* NavigationControlling.swift */,
+				50327BED22AED6A000166098 /* Presentable.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -553,7 +577,8 @@
 		50E2798622AD6CB3006A0634 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				50E2798722AD6CF6006A0634 /* MapURLHandler.swift */,
+				50327BEA22AECCEC00166098 /* Transitions */,
+				50327BE922AECCCD00166098 /* Map Handler */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -864,6 +889,7 @@
 				503930622252B2D1004207C0 /* MapViewModel.swift in Sources */,
 				5039306C2252B412004207C0 /* Delivery.swift in Sources */,
 				50327BE322AE906800166098 /* Tip.swift in Sources */,
+				50327BEC22AECD0C00166098 /* Transition.swift in Sources */,
 				5029DBE822A417B100A116EE /* RatingUITableViewCell.swift in Sources */,
 				50327BE022AE8DDB00166098 /* TipsInteractor.swift in Sources */,
 				5009869D22A05EB00029AA13 /* HeaderView.swift in Sources */,
@@ -878,8 +904,10 @@
 				502C30542249B10500D8BD1B /* LocationService.swift in Sources */,
 				500986A322A120E30029AA13 /* UIView+nib.swift in Sources */,
 				50415A142299EDCA00452037 /* DetailsInteractor.swift in Sources */,
+				50327BEE22AED6A000166098 /* Presentable.swift in Sources */,
 				50415A172299EF3300452037 /* MapRoutable.swift in Sources */,
 				5039306A2252B3EF004207C0 /* Category.swift in Sources */,
+				50327BF022AED6F000166098 /* UIViewController+Presentable.swift in Sources */,
 				504AE8312287168000F1D869 /* StoryboardInstantiateType.swift in Sources */,
 				50420263228DBAC5007E6020 /* NetworkRouter.swift in Sources */,
 				50E2799322AD7A0D006A0634 /* PhotoGalleryTableViewCell.swift in Sources */,

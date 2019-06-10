@@ -486,7 +486,7 @@
                                                     <rect key="frame" x="0.0" y="41" width="375" height="154.66666666666666"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TipCell" rowHeight="166" id="mcO-9I-8Pc" customClass="TipTableViewCell" customModule="FourSquare" customModuleProvider="target">
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TipCell" rowHeight="166" id="mcO-9I-8Pc" customClass="TipTableViewCell" customModule="FourSquare" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="28" width="375" height="166"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mcO-9I-8Pc" id="lQV-xk-QWa">

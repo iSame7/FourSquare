@@ -16,6 +16,9 @@ class DetailsViewController: UIViewController, DetailsViewable {
     let screenWidth = UIScreen.main.bounds.width
     var viewModel: ViewModel?
     
+    let transition = Transition()
+    var imageFrame = CGRect.zero
+
     @IBOutlet weak var tableView: UITableView!
     
 	override func viewDidLoad() {
@@ -118,6 +121,8 @@ extension DetailsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        transition.destinationFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RatingCell") as! RatingUITableViewCell
             cell.setup()
@@ -134,7 +139,13 @@ extension DetailsViewController: UITableViewDataSource {
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TipsCell") as! TipsTableViewCell
             cell.setup(with: TipsTableViewCell.ViewModel(tips: [Int]())) { [weak self] in
-                self?.presenter?.showTipsViewController(tips: [Tip(createdAt: "April 22, 2019", text: "This tiny little venue has tiny little prices for their delightful dumplings. The sesame pancakes are also great, and perfect to grab to-go on your way to picnic in the park, just a block west.", userName: "Bellamy")], venuePhotoURL: "")
+                tableView.deselectRow(at: indexPath, animated: true)
+
+                guard let `self` = self else { return }
+                let a = tableView.convert(cell.frame, to: tableView.superview)
+                self.transition.startingFrame = CGRect(x: a.minX+15, y: a.minY+15, width: 375 / 414 * self.view.frame.width - 30, height: 408 / 736 * self.view.frame.height - 30)
+          
+                self.presenter?.showTipsViewController(tips: [Tip(createdAt: "April 22, 2019", text: "This tiny little venue has tiny little prices for their delightful dumplings. The sesame pancakes are also great, and perfect to grab to-go on your way to picnic in the park, just a block west.", userName: "Bellamy")], venuePhotoURL: "")
             }
             return cell
         } else {
@@ -149,5 +160,19 @@ extension DetailsViewController {
     struct ViewModel {
         let venue: Venue
         let venuePhotoURL: String?
+    }
+}
+
+extension DetailsViewController: UIViewControllerTransitioningDelegate {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .present
+        
+        return transition
+    }
+    
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        transition.transitionMode = .dismiss
+        
+        return transition
     }
 }

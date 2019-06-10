@@ -28,7 +28,7 @@ class DetailsPresenter: DetailsPresenting {
     func showTipsViewController(tips: [Tip], venuePhotoURL: String?) {
         guard let detailsViewController = view as? DetailsViewController else { return }
 
-        router.navigateToTipsModule(navController: detailsViewController.navigationController, tips: tips, venuePhotoURL: venuePhotoURL)
+        router.navigateToTipsModule(viewController: detailsViewController, tips: tips, venuePhotoURL: venuePhotoURL)
     }
     
     func dismiss() {

@@ -26,7 +26,7 @@ class TipsViewController: UIViewController, TipsViewable {
     
     func setUpHeader() {
         headerView = VenueUITableHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenWidth/2), backAction: { [weak self] in
-            self?.navigationController?.popViewController(animated: true)
+            self?.presenter?.dismiss()
         })
         if let viewModel = viewModel {
             headerView?.configure(with: VenueUITableHeaderView.ViewModel(title: viewModel.title, description: viewModel.description, imageURL: viewModel.venuImageURL))

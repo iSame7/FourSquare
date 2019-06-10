@@ -22,6 +22,7 @@ class TipsBuilder: TipsBuilding {
         registerView(with: tips, venuePhotoURL: venuePhotoURL)
         registerInteractor()
         registerMapURLHandler()
+        registerRouter()
         registerPresenter()
         
         guard let detailsViewController = container.resolve(TipsViewable.self) as? UIViewController else { return nil }
@@ -48,7 +49,7 @@ class TipsBuilder: TipsBuilding {
     }
     func registerPresenter() {
         container.register(TipsPresenting.self, factory: { r in
-            TipsPresenter(view: r.resolve(TipsViewable.self)!, interactor: r.resolve(TipsInteracting.self)!)
+            TipsPresenter(view: r.resolve(TipsViewable.self)!, interactor: r.resolve(TipsInteracting.self)!, router: r.resolve(TipsRouting.self)!)
         }).inObjectScope(.container)
     }
     
@@ -59,6 +60,12 @@ class TipsBuilder: TipsBuilding {
             if let tipsInteractor = interactor as? TipsInteractor {
                 tipsInteractor.presenter = r.resolve(TipsPresenting.self)
             }
+        }).inObjectScope(.container)
+    }
+    
+    func registerRouter() {
+        container.register(TipsRouting.self, factory: { r in
+            TipsRouter()
         }).inObjectScope(.container)
     }
 }

@@ -12,7 +12,7 @@ import Foundation
 
 //MARK: Router -
 protocol TipsRouting: class {
-    func navigateToAnotherModule()
+    func navigateToDetailsModule(viewController: Presentable?)
 }
 
 //MARK: Builder -
@@ -26,7 +26,7 @@ protocol ModuleBuilder: class {
 
 //MARK: Presenter -
 protocol TipsPresenting: class {
-
+    func dismiss()
 }
 
 //MARK: Interactor -

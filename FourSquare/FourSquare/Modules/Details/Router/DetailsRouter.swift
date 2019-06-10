@@ -13,16 +13,19 @@ import Swinject
 
 class DetailsRouter: DetailsRouting {
     private weak var tipsModuleBuilder: TipsBuilding?
-    weak var navController: NavigationControlling?
+    weak var viewController: Presentable?
     
     init(tipsModuleBuilder: TipsBuilding?) {
         self.tipsModuleBuilder = tipsModuleBuilder
     }
 
-    func navigateToTipsModule(navController: NavigationControlling?, tips: [Tip], venuePhotoURL: String?) {
-        self.navController = navController
-        if let viewController = tipsModule(tips: tips, venuePhotoURL: venuePhotoURL)?.viewController {
-            navController?.pushViewController(viewController, animated: true)
+    func navigateToTipsModule(viewController: Presentable?, tips: [Tip], venuePhotoURL: String?) {
+        self.viewController = viewController
+        if let tipsViewController = tipsModule(tips: tips, venuePhotoURL: venuePhotoURL)?.viewController, let detailsViewController = viewController as? DetailsViewController {
+            
+            tipsViewController.transitioningDelegate = detailsViewController
+            tipsViewController.modalPresentationStyle = .custom
+            detailsViewController.present(tipsViewController, animated: true, completion: nil)
         }
     }
     

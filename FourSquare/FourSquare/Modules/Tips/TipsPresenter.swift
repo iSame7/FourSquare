@@ -11,9 +11,17 @@
 class TipsPresenter: TipsPresenting {
     weak private var view: TipsViewable?
     var interactor: TipsInteracting?
-
-    init(view: TipsViewable, interactor: TipsInteracting?) {
+    let router: TipsRouting
+    
+    init(view: TipsViewable, interactor: TipsInteracting?, router: TipsRouting) {
         self.view = view
         self.interactor = interactor
+        self.router = router
+    }
+    
+    func dismiss() {
+        if let tipsViewController = view as? TipsViewController {
+            router.navigateToDetailsModule(viewController: tipsViewController)
+        }
     }
 }

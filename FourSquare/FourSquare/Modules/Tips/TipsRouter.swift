@@ -13,20 +13,9 @@ import Swinject
 
 class TipsRouter: TipsRouting {
     
-    weak var viewController: UIViewController?
+    weak var viewController: Presentable?
     
-    init(viewController: UIViewController?) {
-        self.viewController = viewController
-    }
-
-    func navigateToAnotherModule() {
-        if let viewController = self.anotherModuleBuilder()?.buildModule()?.viewController {
-            let navController = UINavigationController(rootViewController: viewController)
-            self.viewController?.present(navController, animated: true, completion: nil)
-        }
-    }
-
-    private func anotherModuleBuilder() -> ModuleBuilder? {
-        return Container.shared.resolve(ModuleBuilder.self)
+    func navigateToDetailsModule(viewController: Presentable?) {
+        viewController?.dismiss(animated: true, completion: nil)
     }
 }
