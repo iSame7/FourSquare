@@ -52,7 +52,7 @@ enum Router: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         
         urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
-        
+        print("URL: \(urlRequest.url)")
         return urlRequest
     }
     

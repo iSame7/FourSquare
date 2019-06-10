@@ -10,4 +10,5 @@ protocol MapPresenting: class {
     func viewDidLoad()
     func getRestaurantsAround(coordinate: String)
     func getPhotos(venueId: String)
+    func showDetailsViewController(venue: Venue, venuePhotoURL: String?) 
 }

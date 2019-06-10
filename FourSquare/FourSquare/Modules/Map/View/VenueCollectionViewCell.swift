@@ -24,9 +24,9 @@ class VenueCollectionViewCell: UICollectionViewCell {
     
     func configure(viewModel: ViewModel) {
         if let imagePath = viewModel.imageName, let imageURL = URL(string: imagePath) {
-            Nuke.loadImage(with: imageURL, into: image)
+            Nuke.loadImage(with: imageURL, options: ImageLoadingOptions(placeholder: #imageLiteral(resourceName: "restaurantPlaceholder"), transition: nil, failureImage: #imageLiteral(resourceName: "restaurant"), failureImageTransition: nil, contentModes: nil), into: image, progress: nil, completion: nil)
         } else {
-            image.image = #imageLiteral(resourceName: "restaurant")
+            image.image = #imageLiteral(resourceName: "restaurantPlaceholder")
         }
         
         titleLabel.text = viewModel.title

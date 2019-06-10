@@ -9,10 +9,12 @@
 class MapPresenter: MapPresenting {
     private weak var view: MapViewable?
     private let mapInteractor: MapInteracting
+    private let router: MapRoutable
     
-    init(view: MapViewable?, mapInteractor: MapInteracting) {
+    init(view: MapViewable?, mapInteractor: MapInteracting, router: MapRoutable) {
         self.view = view
         self.mapInteractor = mapInteractor
+        self.router = router
     }
     
     func viewDidLoad() {
@@ -31,9 +33,18 @@ class MapPresenter: MapPresenting {
     func getPhotos(venueId: String) {
         mapInteractor.getVenuePhotos(venueId: venueId) { [weak self] photos in
             print("Photos: \(photos)")
-            let photo = "\(photos[0].prefix)500x500\(photos[0].suffix)"
-            self?.view?.update(with: photo, for: venueId)
+            if !photos.isEmpty {
+                let photo = "\(photos[0].prefix)500x500\(photos[0].suffix)"
+                self?.view?.update(with: photo, for: venueId)
+            }
+
         }
+    }
+    
+    func showDetailsViewController(venue: Venue, venuePhotoURL: String?) {
+        guard let vmapViewController = view as? MapViewController else { return }
+        
+        router.navigateToDetailsModule(navController: vmapViewController.navigationController, venue: venue, venuePhotoURL: venuePhotoURL)
     }
 }
 

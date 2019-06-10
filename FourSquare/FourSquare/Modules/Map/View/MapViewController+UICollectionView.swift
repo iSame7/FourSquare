@@ -9,7 +9,6 @@
 import UIKit
 
 extension MapViewController: UICollectionViewDataSource {
-    
     private func calculateSectionInset() -> CGFloat {
         let deviceIsIpad = UIDevice.current.userInterfaceIdiom == .pad
         let deviceOrientationIsLandscape = UIDevice.current.orientation.isLandscape
@@ -49,9 +48,7 @@ extension MapViewController: UICollectionViewDataSource {
         let viewModel = VenueCollectionViewCell.ViewModel(imageName: venuePhotos[venue.id], title: venue.name, categoryName: venue.categories.first?.name ?? "", description: String(distanceMi) + " mi " + (venue.location.address ?? ""))
         cell.configure(viewModel: viewModel)
         
-        // You can color the cells so you could see how they behave:
-        let isEvenCell = CGFloat(indexPath.row).truncatingRemainder(dividingBy: 2) == 0
-        cell.backgroundColor = isEvenCell ? UIColor(white: 0.9, alpha: 1) : .white
+        cell.backgroundColor = .white
         
         return cell
     }
@@ -69,6 +66,9 @@ extension MapViewController: UICollectionViewDelegate {
         
         // calculate where scrollView should snap to:
         let indexOfMajorCell = self.indexOfMajorCell()
+        
+        print("SelectedItem: \(indexOfMajorCell)")
+        selectedItemIndex = indexOfMajorCell
         
         // calculate conditions:
         let swipeVelocityThreshold: CGFloat = 0.5 // after some trail and error
@@ -93,5 +93,10 @@ extension MapViewController: UICollectionViewDelegate {
             let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
             collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let venue = venues[indexPath.row]
+        presenter.showDetailsViewController(venue: venue, venuePhotoURL: venuePhotos[venue.id])
     }
 }

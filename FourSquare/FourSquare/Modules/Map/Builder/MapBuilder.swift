@@ -22,11 +22,12 @@ class MapBuilder: MapBuilding {
         registerLocationService()
         registerVenueService()
         registerInteractor()
+        registerRouter()
         registerPresenter()
         
         guard let mapViewController = container.resolve(MapViewable.self) as? UIViewController  else { return nil }
-        
-        return FourSquare.Module(viewController: mapViewController)
+        let navController = UINavigationController(rootViewController: mapViewController)
+        return FourSquare.Module(viewController: navController)
     }
     
     private func registerView() {
@@ -51,7 +52,7 @@ class MapBuilder: MapBuilding {
     
     private func registerPresenter() {
         container.register(MapPresenting.self, factory: { r in
-            MapPresenter(view: r.resolve(MapViewable.self), mapInteractor: r.resolve(MapInteracting.self)!)
+            MapPresenter(view: r.resolve(MapViewable.self), mapInteractor: r.resolve(MapInteracting.self)!, router: r.resolve(MapRoutable.self)!)
         }).inObjectScope(.container)
     }
     
@@ -75,5 +76,11 @@ class MapBuilder: MapBuilding {
         container.register(LocationServiceChecking.self) { r in
             LocationService(locationManager: r.resolve(CLLocationManager.self)!)
         }
+    }
+    
+    func registerRouter() {
+        container.register(MapRoutable.self, factory: { r in
+            MapRouter(detailsModuleBuilder: r.resolve(DetailsBuilding.self))
+        }).inObjectScope(.container)
     }
 }

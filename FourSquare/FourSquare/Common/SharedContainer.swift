@@ -16,6 +16,14 @@ extension Container {
             MapBuilder(container: c)
         }).inObjectScope(.container)
         
+        c.register(DetailsBuilding.self, factory: { r in
+            DetailsBuilder(container: c)
+        }).inObjectScope(.container)
+        
+        c.register(TipsBuilding.self, factory: { r in
+            TipsBuilder(container: c)
+        }).inObjectScope(.container)
+        
         return c 
     }()
 }
