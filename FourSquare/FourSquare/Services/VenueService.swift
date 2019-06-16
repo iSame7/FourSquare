@@ -47,6 +47,17 @@ class VenuService: VenueFetching {
                 print("Error\(String(describing: response.result.error))")
                 if response.result.error?.code == -1009 {
                     completion(nil, .noInternetConnection)
+                    
+                    self?.networkRechabilityManager.listener = { status in
+                        print("Network Status Changed: \(status)")
+                        switch status {
+                        case .reachable(_):
+                            self?.fetchVenues(coordinate: coordinate, completion: completion)
+                        default:
+                            break
+                        }
+                    }
+                    self?.networkRechabilityManager.startListening()
                 } else {
                     completion(nil, .noResponse)
                 }
@@ -89,7 +100,23 @@ class VenuService: VenueFetching {
                     }
                 }
             } else {
-                completion(nil, .noResponse)
+                print("Error\(String(describing: response.result.error))")
+                if response.result.error?.code == -1009 {
+                    completion(nil, .noInternetConnection)
+                    
+                    self?.networkRechabilityManager.listener = { status in
+                        print("Network Status Changed: \(status)")
+                        switch status {
+                        case .reachable(_):
+                            self?.fetchVenueDetails(venueId: venueId, completion: completion)
+                        default:
+                            break
+                        }
+                    }
+                    self?.networkRechabilityManager.startListening()
+                } else {
+                    completion(nil, .noResponse)
+                }
             }
         }
     }
