@@ -44,6 +44,9 @@
 		502CD27322B68AA500EACFFC /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27222B68AA500EACFFC /* PhotoViewController.swift */; };
 		502CD27522B68B2C00EACFFC /* ScalingImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27422B68B2C00EACFFC /* ScalingImageView.swift */; };
 		502CD27722B68B8A00EACFFC /* UIVIew+PhotoViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27622B68B8A00EACFFC /* UIVIew+PhotoViewer.swift */; };
+		502CD27922B6C04800EACFFC /* Double+toDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27822B6C04800EACFFC /* Double+toDate.swift */; };
+		502CD27B22B6C58A00EACFFC /* UINavigationBar+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27A22B6C58A00EACFFC /* UINavigationBar+Transitions.swift */; };
+		502CD27D22B6C7B800EACFFC /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27C22B6C7B800EACFFC /* UIColor+Palette.swift */; };
 		502F44C32253EC2D0045C424 /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F44C22253EC2D0045C424 /* SharedContainer.swift */; };
 		50327BCF22AE77A800166098 /* TipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BCE22AE77A800166098 /* TipsTableViewCell.swift */; };
 		50327BD222AE7E1400166098 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD122AE7E1400166098 /* TipTableViewCell.swift */; };
@@ -165,6 +168,9 @@
 		502CD27222B68AA500EACFFC /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		502CD27422B68B2C00EACFFC /* ScalingImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScalingImageView.swift; sourceTree = "<group>"; };
 		502CD27622B68B8A00EACFFC /* UIVIew+PhotoViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIVIew+PhotoViewer.swift"; sourceTree = "<group>"; };
+		502CD27822B6C04800EACFFC /* Double+toDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+toDate.swift"; sourceTree = "<group>"; };
+		502CD27A22B6C58A00EACFFC /* UINavigationBar+Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Transitions.swift"; sourceTree = "<group>"; };
+		502CD27C22B6C7B800EACFFC /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
 		502F44C22253EC2D0045C424 /* SharedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedContainer.swift; sourceTree = "<group>"; };
 		50327BCE22AE77A800166098 /* TipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewCell.swift; sourceTree = "<group>"; };
 		50327BD122AE7E1400166098 /* TipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
@@ -604,6 +610,9 @@
 				5029DBE422A161C900A116EE /* UIView+Gradient.swift */,
 				5029DBED22A4461100A116EE /* FloatingPoint+Utilities.swift */,
 				502CD26322B58A3600EACFFC /* UIImage+Blur.swift */,
+				502CD27822B6C04800EACFFC /* Double+toDate.swift */,
+				502CD27A22B6C58A00EACFFC /* UINavigationBar+Transitions.swift */,
+				502CD27C22B6C7B800EACFFC /* UIColor+Palette.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -927,6 +936,7 @@
 				508681182291A5200055B0A1 /* VenueAnnotationView.swift in Sources */,
 				5086811D2291CA5A0055B0A1 /* MapViewController+UICollectionView.swift in Sources */,
 				503930642252B33D004207C0 /* Venue.swift in Sources */,
+				502CD27D22B6C7B800EACFFC /* UIColor+Palette.swift in Sources */,
 				50327BDE22AE8DDB00166098 /* TipsProtocols.swift in Sources */,
 				50E2798D22AD794F006A0634 /* PhotoCollectionViewCell.swift in Sources */,
 				508DED302263847000D15882 /* VenueService.swift in Sources */,
@@ -943,6 +953,7 @@
 				5029DBEC22A4199500A116EE /* RatingCircleView.swift in Sources */,
 				50415A192299EF5E00452037 /* MapRouter.swift in Sources */,
 				50E2798522AD61B6006A0634 /* MapTableViewCell.swift in Sources */,
+				502CD27B22B6C58A00EACFFC /* UINavigationBar+Transitions.swift in Sources */,
 				5009869F22A11B980029AA13 /* VenueUITableHeaderView.swift in Sources */,
 				5029DBF322A45B3A00A116EE /* HairlineView.swift in Sources */,
 				5064D887229AD3E000BDFD32 /* UINavigationController+NavigationControlling.swift in Sources */,
@@ -972,6 +983,7 @@
 				504AE8312287168000F1D869 /* StoryboardInstantiateType.swift in Sources */,
 				502CD26D22B688A600EACFFC /* PhotosOverlayView.swift in Sources */,
 				50420263228DBAC5007E6020 /* NetworkRouter.swift in Sources */,
+				502CD27922B6C04800EACFFC /* Double+toDate.swift in Sources */,
 				50E2799322AD7A0D006A0634 /* PhotoGalleryTableViewCell.swift in Sources */,
 				5029DBEE22A4461100A116EE /* FloatingPoint+Utilities.swift in Sources */,
 				502C304C2249AAEB00D8BD1B /* FourSquareModule.swift in Sources */,
@@ -1161,8 +1173,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://api.foursquare.com/v2";
-				CLIENT_ID = E2UNJR4LAWYUTFI2Y0VJBMHDJ4TZUIP1PCICQQDF1GDLTJLN;
-				CLIENT_SECRET = 2RLCAWBOKCNGDRCDVZDKEDVW4NLKGPDHFNNHW1VOTHFR3HIE;
+				CLIENT_ID = TPMQNTNPTQ3CWPYTCDHSDC5NT5G4KBCUI2QTZMZC0AK10OGV;
+				CLIENT_SECRET = 45VQ4LVHCGZ11ZGJX1JTA1ADJ0N2JSDUKTNRI4KIAV1MSW3W;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U7YW5472M;
 				INFOPLIST_FILE = FourSquare/Info.plist;
@@ -1183,8 +1195,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://api.foursquare.com/v2";
-				CLIENT_ID = E2UNJR4LAWYUTFI2Y0VJBMHDJ4TZUIP1PCICQQDF1GDLTJLN;
-				CLIENT_SECRET = 2RLCAWBOKCNGDRCDVZDKEDVW4NLKGPDHFNNHW1VOTHFR3HIE;
+				CLIENT_ID = TPMQNTNPTQ3CWPYTCDHSDC5NT5G4KBCUI2QTZMZC0AK10OGV;
+				CLIENT_SECRET = 45VQ4LVHCGZ11ZGJX1JTA1ADJ0N2JSDUKTNRI4KIAV1MSW3W;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U7YW5472M;
 				INFOPLIST_FILE = FourSquare/Info.plist;

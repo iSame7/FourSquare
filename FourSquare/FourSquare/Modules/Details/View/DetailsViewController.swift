@@ -153,15 +153,18 @@ extension DetailsViewController: UITableViewDataSource {
             return cell
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TipsCell") as! TipsTableViewCell
-            cell.setup(with: TipsTableViewCell.ViewModel(tips: [Int]())) { [weak self] in
-                tableView.deselectRow(at: indexPath, animated: true)
-                
-                guard let `self` = self else { return }
-                let a = tableView.convert(cell.frame, to: tableView.superview)
-                self.transition.startingFrame = CGRect(x: a.minX+15, y: a.minY+15, width: 375 / 414 * self.view.frame.width - 30, height: 408 / 736 * self.view.frame.height - 30)
-                
-                self.presenter?.showTipsViewController(tips: [Tip(createdAt: "April 22, 2019", text: "This tiny little venue has tiny little prices for their delightful dumplings. The sesame pancakes are also great, and perfect to grab to-go on your way to picnic in the park, just a block west.", userName: "Bellamy")], venuePhotoURL: "")
+            if let viewModel = viewModel, let groups = viewModel.venue.tips?.groups, let tips = groups.first?.items {
+                cell.setup(with: TipsTableViewCell.ViewModel(tips: tips)) { [weak self] in
+                    tableView.deselectRow(at: indexPath, animated: true)
+                    
+                    guard let `self` = self else { return }
+                    let a = tableView.convert(cell.frame, to: tableView.superview)
+                    self.transition.startingFrame = CGRect(x: a.minX+15, y: a.minY+15, width: 375 / 414 * self.view.frame.width - 30, height: 408 / 736 * self.view.frame.height - 30)
+                    
+                    self.presenter?.showTipsViewController(tips: tips, venuePhotoURL: viewModel.venuePhotoURL)
+                }
             }
+
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!

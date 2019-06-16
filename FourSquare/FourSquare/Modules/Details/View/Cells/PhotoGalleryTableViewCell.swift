@@ -26,6 +26,7 @@ class PhotoGalleryTableViewCell: UITableViewCell {
         collectionView.register(UINib(nibName: "\(PhotoCollectionViewCell.self)", bundle: nil), forCellWithReuseIdentifier: "GalleryCollectionViewCell")
     }
     
+    // resize cell according to collection view size
     override func systemLayoutSizeFitting(_ targetSize: CGSize, withHorizontalFittingPriority horizontalFittingPriority: UILayoutPriority, verticalFittingPriority: UILayoutPriority) -> CGSize {
         if let viewModel = viewModel, !viewModel.photos.isEmpty {
             collectionView.layoutIfNeeded()

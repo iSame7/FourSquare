@@ -17,7 +17,7 @@ protocol TipsRouting: class {
 
 //MARK: Builder -
 protocol TipsBuilding: class {
-    func buildModuleWith(tips: [Tip], venuePhotoURL: String?) -> FourSquare.Module?
+    func buildModuleWith(tips: [TipItem], venuePhotoURL: String?) -> FourSquare.Module?
 }
 
 protocol ModuleBuilder: class {

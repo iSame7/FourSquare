@@ -12,7 +12,7 @@ import Foundation
 
 //MARK: Router -
 protocol DetailsRouting: class {
-    func navigateToTipsModule(viewController: Presentable?, tips: [Tip], venuePhotoURL: String?)
+    func navigateToTipsModule(viewController: Presentable?, tips: [TipItem], venuePhotoURL: String?)
     func navigateToMapModule(navController: NavigationControlling?)
 }
 
@@ -29,7 +29,7 @@ protocol DetailsBuilding: class {
 protocol DetailsPresenting: class {
     func getVenueDetails(venueId: String) 
     func showMap(type: MapType, location: Location)
-    func showTipsViewController(tips: [Tip], venuePhotoURL: String?)
+    func showTipsViewController(tips: [TipItem], venuePhotoURL: String?)
     func dismiss() 
 }
 

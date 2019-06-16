@@ -35,7 +35,7 @@ class DetailsPresenter: DetailsPresenting {
         mapURLHandler.openMap(location: location, type: type)
     }
     
-    func showTipsViewController(tips: [Tip], venuePhotoURL: String?) {
+    func showTipsViewController(tips: [TipItem], venuePhotoURL: String?) {
         guard let detailsViewController = view as? DetailsViewController else { return }
 
         router.navigateToTipsModule(viewController: detailsViewController, tips: tips, venuePhotoURL: venuePhotoURL)

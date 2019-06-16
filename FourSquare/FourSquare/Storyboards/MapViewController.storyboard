@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MFG-Me-UGM">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="768"/>
                             </mapView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="giu-65-kp2">
                                 <rect key="frame" x="0.0" y="685" width="375" height="93"/>
@@ -106,6 +106,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fOH-zU-5TZ"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="collectionView" destination="giu-65-kp2" id="zyJ-hd-Wbj"/>
                         <outlet property="collectionViewLayout" destination="ovm-wa-Ff7" id="Cnf-Mg-eut"/>
@@ -178,9 +179,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="createdAtLabel" destination="JVG-M9-QIZ" id="1w4-bJ-x4A"/>
+                                            <outlet property="createdAtLabel" destination="bcs-cW-cmQ" id="Dft-DC-jJw"/>
                                             <outlet property="tipLabel" destination="MQQ-aM-vFq" id="3Xn-JA-bk2"/>
                                             <outlet property="userImageView" destination="IW3-qf-pKz" id="A4M-9u-EqL"/>
+                                            <outlet property="userNameLabel" destination="JVG-M9-QIZ" id="jrq-kP-ata"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -210,13 +212,13 @@
         <!--Details View Controller-->
         <scene sceneID="qdI-Ki-nxA">
             <objects>
-                <viewController storyboardIdentifier="DetailsViewController" id="D8t-M9-x04" customClass="DetailsViewController" customModule="FourSquare" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailsViewController" automaticallyAdjustsScrollViewInsets="NO" id="D8t-M9-x04" customClass="DetailsViewController" customModule="FourSquare" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="284-Lu-FnP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GKh-1h-8HR">
-                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="RatingCell" rowHeight="194" id="asY-wv-XwI" customClass="RatingUITableViewCell" customModule="FourSquare" customModuleProvider="target">
@@ -494,14 +496,14 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GIT-gZ-n8l">
-                                                    <rect key="frame" x="0.0" y="41" width="375" height="154.66666666666666"/>
+                                                    <rect key="frame" x="0.0" y="41" width="375" height="144.66666666666666"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <prototypes>
-                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TipCell" rowHeight="166" id="mcO-9I-8Pc" customClass="TipTableViewCell" customModule="FourSquare" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="28" width="375" height="166"/>
+                                                        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="TipCell" rowHeight="177" id="mcO-9I-8Pc" customClass="TipTableViewCell" customModule="FourSquare" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="28" width="375" height="177"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mcO-9I-8Pc" id="lQV-xk-QWa">
-                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="165.66666666666666"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="176.66666666666666"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="John Murphy  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bwY-cq-9XZ">
@@ -517,7 +519,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IJb-vr-LIE">
-                                                                        <rect key="frame" x="75" y="55.666666666666657" width="300" height="102"/>
+                                                                        <rect key="frame" x="75" y="55.666666666666657" width="300" height="63"/>
                                                                         <string key="text">This tiny little venue has tiny little prices for their delightful dumplings. The sesame pancakes are also great, and perfect to grab to-go on your way to picnic in the park, just a block west.</string>
                                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                                         <nil key="textColor"/>
@@ -541,15 +543,16 @@
                                                                     <constraint firstItem="5x5-JN-fWH" firstAttribute="leading" secondItem="9PA-W3-EOp" secondAttribute="trailing" constant="10" id="LcL-6N-0FP"/>
                                                                     <constraint firstAttribute="trailing" secondItem="bwY-cq-9XZ" secondAttribute="trailing" id="Nv9-CR-Tbo"/>
                                                                     <constraint firstAttribute="trailing" secondItem="IJb-vr-LIE" secondAttribute="trailing" id="PWi-mH-g1Q"/>
-                                                                    <constraint firstItem="IJb-vr-LIE" firstAttribute="bottom" secondItem="lQV-xk-QWa" secondAttribute="bottomMargin" id="aBw-KM-9cb"/>
+                                                                    <constraint firstItem="IJb-vr-LIE" firstAttribute="bottom" secondItem="lQV-xk-QWa" secondAttribute="bottomMargin" constant="-50" id="aBw-KM-9cb"/>
                                                                     <constraint firstItem="IJb-vr-LIE" firstAttribute="leading" secondItem="5x5-JN-fWH" secondAttribute="leading" id="fkm-XX-hv8"/>
                                                                     <constraint firstItem="9PA-W3-EOp" firstAttribute="top" secondItem="lQV-xk-QWa" secondAttribute="top" constant="10" id="sZL-g3-AiB"/>
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
-                                                                <outlet property="createdAtLabel" destination="bwY-cq-9XZ" id="JRN-M8-4TM"/>
+                                                                <outlet property="createdAtLabel" destination="5x5-JN-fWH" id="Y2B-FH-vHT"/>
                                                                 <outlet property="tipLabel" destination="IJb-vr-LIE" id="c8N-bQ-FZ0"/>
                                                                 <outlet property="userImageView" destination="9PA-W3-EOp" id="xa7-ko-JYp"/>
+                                                                <outlet property="userNameLabel" destination="bwY-cq-9XZ" id="BsV-1Y-kgd"/>
                                                             </connections>
                                                         </tableViewCell>
                                                     </prototypes>
@@ -562,7 +565,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="GIT-gZ-n8l" secondAttribute="trailing" id="2av-JH-XqA"/>
                                                 <constraint firstItem="Jhj-uf-5xm" firstAttribute="leading" secondItem="tgw-p0-od5" secondAttribute="leading" constant="10" id="HaR-6g-uIS"/>
-                                                <constraint firstAttribute="bottom" secondItem="GIT-gZ-n8l" secondAttribute="bottom" id="bwo-Tp-BX8"/>
+                                                <constraint firstAttribute="bottom" secondItem="GIT-gZ-n8l" secondAttribute="bottom" constant="10" id="bwo-Tp-BX8"/>
                                                 <constraint firstItem="GIT-gZ-n8l" firstAttribute="top" secondItem="tgw-p0-od5" secondAttribute="top" constant="41" id="cTA-zO-u8R"/>
                                                 <constraint firstItem="GIT-gZ-n8l" firstAttribute="top" secondItem="Jhj-uf-5xm" secondAttribute="bottom" constant="13" id="nfx-iE-7mS"/>
                                                 <constraint firstItem="Jhj-uf-5xm" firstAttribute="top" secondItem="tgw-p0-od5" secondAttribute="top" constant="15" id="sm5-z7-oOe"/>
@@ -589,6 +592,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wep-Wn-OWS"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="tableView" destination="GKh-1h-8HR" id="VSZ-lI-iiq"/>
                     </connections>

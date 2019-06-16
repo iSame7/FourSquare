@@ -57,7 +57,9 @@ extension TipsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TipCell") as! TipTableViewCell
-        cell.setup(with: TipTableViewCell.ViewModel(userImageURL: nil, createdAt: "", tipText: ""))
+        if let tip = viewModel?.tips[indexPath.row], let user = tip.user, let userPhoto = user.photo {
+            cell.setup(with: TipTableViewCell.ViewModel(userName: user.firstName ?? "--", userImageURL: "\(userPhoto.prefix)500x500\(userPhoto.suffix)", createdAt: Double(tip.createdAt ?? 0).getDateStringFromUTC(), tipText: tip.text ?? "--"))
+        }
         return cell
     }
 }
@@ -75,7 +77,7 @@ extension TipsViewController: StoryboardInstantiatable {
 extension TipsViewController {
     struct ViewModel {
         let venuImageURL: String?
-        let tips: [Tip]
+        let tips: [TipItem]
         let title: String
         let description: String
     }

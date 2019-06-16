@@ -13,8 +13,9 @@ class TipTableViewCell: UITableViewCell {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var createdAtLabel: UILabel!
     @IBOutlet weak var tipLabel: UILabel!
-    
+    @IBOutlet weak var userNameLabel: UILabel!
     struct ViewModel {
+        let userName: String
         let userImageURL: String?
         let createdAt: String
         let tipText: String
@@ -27,7 +28,8 @@ class TipTableViewCell: UITableViewCell {
             userImageView.image = #imageLiteral(resourceName: "user")
         }
         
-//        createdAtLabel.text = viewModel.createdAt
-//        tipLabel.text = viewModel.tipText
+        userNameLabel.text = viewModel.userName
+        createdAtLabel.text = viewModel.createdAt
+        tipLabel.text = viewModel.tipText
     }
 }

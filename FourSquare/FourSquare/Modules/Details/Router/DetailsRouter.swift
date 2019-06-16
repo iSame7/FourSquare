@@ -19,7 +19,7 @@ class DetailsRouter: DetailsRouting {
         self.tipsModuleBuilder = tipsModuleBuilder
     }
 
-    func navigateToTipsModule(viewController: Presentable?, tips: [Tip], venuePhotoURL: String?) {
+    func navigateToTipsModule(viewController: Presentable?, tips: [TipItem], venuePhotoURL: String?) {
         self.viewController = viewController
         if let tipsViewController = tipsModule(tips: tips, venuePhotoURL: venuePhotoURL)?.viewController, let detailsViewController = viewController as? DetailsViewController {
             
@@ -33,7 +33,7 @@ class DetailsRouter: DetailsRouting {
         _ = navController?.popViewController(animated: true)
     }
     
-    func tipsModule(tips: [Tip], venuePhotoURL: String?) -> FourSquare.Module? {
+    func tipsModule(tips: [TipItem], venuePhotoURL: String?) -> FourSquare.Module? {
         return tipsModuleBuilder?.buildModuleWith(tips: tips, venuePhotoURL: venuePhotoURL)
     }
 

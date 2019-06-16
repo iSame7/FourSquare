@@ -19,6 +19,7 @@ struct Venue: Codable {
     let rating: Double?
     let hours: Hours?
     let photos: VenuePhotos?
+    let tips: Tips?
 }
 
 struct Hours: Codable {
@@ -39,4 +40,32 @@ struct Group: Codable {
     let name: String?
     let count: Int?
     let items: [Photo]?
+}
+
+struct Tips: Codable {
+    let count: Int
+    let groups: [TipsGroup]
+}
+
+struct TipsGroup: Codable {
+    let type: String?
+    let name: String?
+    let count: Int?
+    let items: [TipItem]?
+}
+
+struct TipItem: Codable {
+    let createdAt: Int?
+    let text: String?
+    let user: User?
+}
+
+struct User: Codable {
+    let firstName: String?
+    let photo: UserPhoto?
+}
+
+struct UserPhoto: Codable {
+    let prefix: String
+    let suffix: String
 }

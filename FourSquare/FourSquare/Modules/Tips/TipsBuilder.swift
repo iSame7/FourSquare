@@ -18,7 +18,7 @@ class TipsBuilder: TipsBuilding {
         self.container = container
     }
     
-    func buildModuleWith(tips: [Tip], venuePhotoURL: String?) -> FourSquare.Module? {
+    func buildModuleWith(tips: [TipItem], venuePhotoURL: String?) -> FourSquare.Module? {
         registerView(with: tips, venuePhotoURL: venuePhotoURL)
         registerInteractor()
         registerMapURLHandler()
@@ -31,7 +31,7 @@ class TipsBuilder: TipsBuilding {
         
     }
     
-    func registerView(with tips: [Tip], venuePhotoURL: String?) {
+    func registerView(with tips: [TipItem], venuePhotoURL: String?) {
         container.register(TipsViewable.self, factory: { _ in
             TipsViewController.instantiate()
         }).initCompleted({ (r, view) in
