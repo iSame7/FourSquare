@@ -24,9 +24,13 @@ class MapPresenter: MapPresenting {
     }
     
     func getRestaurantsAround(coordinate: String) {
-        mapInteractor.getRestaurantsAround(coordinate: coordinate) { [weak self] venues in
+        mapInteractor.getRestaurantsAround(coordinate: coordinate) { [weak self] (venues, error) in
 //            print("Venues: \(venues)")
-            self?.view?.update(venues)
+            if let venues = venues {
+                self?.view?.update(venues)
+            } else if let error = error {
+                self?.view?.showError(error: error)
+            }
         }
     }
     

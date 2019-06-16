@@ -197,6 +197,9 @@ extension DetailsViewController: UIViewControllerTransitioningDelegate {
 
 extension DetailsViewController: DetailsViewable {
     func updateWith(error: FoursquareError) {
+        if let errorDescription = error.errorDescription, let errorTitle = error.errorUserInfo[NSLocalizedDescriptionKey] as? String {
+            InAppNotifications.showNotification(type: InAppNotifications.error, title: errorTitle, message: errorDescription, dismissDelay: 3)
+        }
     }
     
     func updateWith(viewModel: DetailsViewController.ViewModel) {

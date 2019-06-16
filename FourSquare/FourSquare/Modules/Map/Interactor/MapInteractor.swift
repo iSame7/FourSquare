@@ -16,9 +16,9 @@ class MapInteractor: MapInteracting {
         self.venueService = venueService
     }
     
-    func getRestaurantsAround(coordinate: String, completion: @escaping ([Venue]) -> Void) {
-        venueService.fetchVenues(coordinate: coordinate) { venues in
-            completion(venues)
+    func getRestaurantsAround(coordinate: String, completion: @escaping ([Venue]?, FoursquareError?) -> Void) {
+        venueService.fetchVenues(coordinate: coordinate) { (venues, error)  in
+            completion(venues, error)
         }
     }
     

@@ -8,7 +8,7 @@
 
 typealias UserLocationBlock = (Location) -> Void
 protocol MapInteracting {
-    func getRestaurantsAround(coordinate: String, completion: @escaping ([Venue]) -> Void)
+    func getRestaurantsAround(coordinate: String, completion: @escaping ([Venue]?, FoursquareError?) -> Void)
     func getVenuePhotos(venueId: String, completion: @escaping ([Photo]) -> Void)
     func determineUserLocation(completion: @escaping UserLocationBlock)
 }

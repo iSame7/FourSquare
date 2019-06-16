@@ -47,6 +47,11 @@
 		502CD27922B6C04800EACFFC /* Double+toDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27822B6C04800EACFFC /* Double+toDate.swift */; };
 		502CD27B22B6C58A00EACFFC /* UINavigationBar+Transitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27A22B6C58A00EACFFC /* UINavigationBar+Transitions.swift */; };
 		502CD27D22B6C7B800EACFFC /* UIColor+Palette.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27C22B6C7B800EACFFC /* UIColor+Palette.swift */; };
+		502CD28022B6D48900EACFFC /* InAppNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD27F22B6D48900EACFFC /* InAppNotification.swift */; };
+		502CD28222B6D4DA00EACFFC /* InAppNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28122B6D4DA00EACFFC /* InAppNotifications.swift */; };
+		502CD28422B6D4F500EACFFC /* InAppNotificationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28322B6D4F500EACFFC /* InAppNotificationType.swift */; };
+		502CD28622B6D50F00EACFFC /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28522B6D50F00EACFFC /* DeviceManager.swift */; };
+		502CD28822B6D82500EACFFC /* Error+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28722B6D82500EACFFC /* Error+Util.swift */; };
 		502F44C32253EC2D0045C424 /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F44C22253EC2D0045C424 /* SharedContainer.swift */; };
 		50327BCF22AE77A800166098 /* TipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BCE22AE77A800166098 /* TipsTableViewCell.swift */; };
 		50327BD222AE7E1400166098 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD122AE7E1400166098 /* TipTableViewCell.swift */; };
@@ -171,6 +176,11 @@
 		502CD27822B6C04800EACFFC /* Double+toDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+toDate.swift"; sourceTree = "<group>"; };
 		502CD27A22B6C58A00EACFFC /* UINavigationBar+Transitions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Transitions.swift"; sourceTree = "<group>"; };
 		502CD27C22B6C7B800EACFFC /* UIColor+Palette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Palette.swift"; sourceTree = "<group>"; };
+		502CD27F22B6D48900EACFFC /* InAppNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotification.swift; sourceTree = "<group>"; };
+		502CD28122B6D4DA00EACFFC /* InAppNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotifications.swift; sourceTree = "<group>"; };
+		502CD28322B6D4F500EACFFC /* InAppNotificationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InAppNotificationType.swift; sourceTree = "<group>"; };
+		502CD28522B6D50F00EACFFC /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
+		502CD28722B6D82500EACFFC /* Error+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Util.swift"; sourceTree = "<group>"; };
 		502F44C22253EC2D0045C424 /* SharedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedContainer.swift; sourceTree = "<group>"; };
 		50327BCE22AE77A800166098 /* TipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewCell.swift; sourceTree = "<group>"; };
 		50327BD122AE7E1400166098 /* TipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
@@ -488,6 +498,17 @@
 			path = "Photo Gallery";
 			sourceTree = "<group>";
 		};
+		502CD27E22B6D47200EACFFC /* In App Notification */ = {
+			isa = PBXGroup;
+			children = (
+				502CD27F22B6D48900EACFFC /* InAppNotification.swift */,
+				502CD28122B6D4DA00EACFFC /* InAppNotifications.swift */,
+				502CD28322B6D4F500EACFFC /* InAppNotificationType.swift */,
+				502CD28522B6D50F00EACFFC /* DeviceManager.swift */,
+			);
+			path = "In App Notification";
+			sourceTree = "<group>";
+		};
 		50327BD022AE7DFB00166098 /* Tips */ = {
 			isa = PBXGroup;
 			children = (
@@ -613,6 +634,7 @@
 				502CD27822B6C04800EACFFC /* Double+toDate.swift */,
 				502CD27A22B6C58A00EACFFC /* UINavigationBar+Transitions.swift */,
 				502CD27C22B6C7B800EACFFC /* UIColor+Palette.swift */,
+				502CD28722B6D82500EACFFC /* Error+Util.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -637,6 +659,7 @@
 		50E2798622AD6CB3006A0634 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				502CD27E22B6D47200EACFFC /* In App Notification */,
 				502CD26522B686FD00EACFFC /* Photo Gallery */,
 				50327BEA22AECCEC00166098 /* Transitions */,
 				50327BE922AECCCD00166098 /* Map Handler */,
@@ -935,6 +958,7 @@
 				50327BCF22AE77A800166098 /* TipsTableViewCell.swift in Sources */,
 				508681182291A5200055B0A1 /* VenueAnnotationView.swift in Sources */,
 				5086811D2291CA5A0055B0A1 /* MapViewController+UICollectionView.swift in Sources */,
+				502CD28222B6D4DA00EACFFC /* InAppNotifications.swift in Sources */,
 				503930642252B33D004207C0 /* Venue.swift in Sources */,
 				502CD27D22B6C7B800EACFFC /* UIColor+Palette.swift in Sources */,
 				50327BDE22AE8DDB00166098 /* TipsProtocols.swift in Sources */,
@@ -955,7 +979,9 @@
 				50E2798522AD61B6006A0634 /* MapTableViewCell.swift in Sources */,
 				502CD27B22B6C58A00EACFFC /* UINavigationBar+Transitions.swift in Sources */,
 				5009869F22A11B980029AA13 /* VenueUITableHeaderView.swift in Sources */,
+				502CD28822B6D82500EACFFC /* Error+Util.swift in Sources */,
 				5029DBF322A45B3A00A116EE /* HairlineView.swift in Sources */,
+				502CD28622B6D50F00EACFFC /* DeviceManager.swift in Sources */,
 				5064D887229AD3E000BDFD32 /* UINavigationController+NavigationControlling.swift in Sources */,
 				503930622252B2D1004207C0 /* MapViewModel.swift in Sources */,
 				5039306C2252B412004207C0 /* Delivery.swift in Sources */,
@@ -973,6 +999,7 @@
 				502C30472249AA3B00D8BD1B /* MapPresenter.swift in Sources */,
 				502CD27522B68B2C00EACFFC /* ScalingImageView.swift in Sources */,
 				50415A132299EDCA00452037 /* DetailsBuilder.swift in Sources */,
+				502CD28022B6D48900EACFFC /* InAppNotification.swift in Sources */,
 				502C30542249B10500D8BD1B /* LocationService.swift in Sources */,
 				500986A322A120E30029AA13 /* UIView+nib.swift in Sources */,
 				50415A142299EDCA00452037 /* DetailsInteractor.swift in Sources */,
@@ -991,6 +1018,7 @@
 				50420267228E1FA3007E6020 /* SearchResult.swift in Sources */,
 				504AE8352287173D00F1D869 /* NSObject+Util.swift in Sources */,
 				502C300B2249A0B700D8BD1B /* AppDelegate.swift in Sources */,
+				502CD28422B6D4F500EACFFC /* InAppNotificationType.swift in Sources */,
 				50415A102299EDCA00452037 /* DetailsRouter.swift in Sources */,
 				5086811B2291BAF80055B0A1 /* UIImage+Glyph.swift in Sources */,
 				503930662252B38E004207C0 /* Contact.swift in Sources */,

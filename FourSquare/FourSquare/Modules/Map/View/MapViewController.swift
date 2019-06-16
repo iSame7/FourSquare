@@ -42,7 +42,6 @@ class MapViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-//        navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
     override func viewDidLayoutSubviews() {
@@ -64,6 +63,11 @@ extension MapViewController: MapViewable {
         presenter.getRestaurantsAround(coordinate: coordinate)
     }
     
+    func showError(error: FoursquareError) {
+        if let errorDescription = error.errorDescription, let errorTitle = error.errorUserInfo[NSLocalizedDescriptionKey] as? String {
+            InAppNotifications.showNotification(type: InAppNotifications.error, title: errorTitle, message: errorDescription, dismissDelay: 3)
+        }
+    }
     func update(_ model: [Venue]) {
         print("Add venues on map")
         venues = model

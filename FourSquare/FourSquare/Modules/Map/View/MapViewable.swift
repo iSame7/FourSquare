@@ -8,6 +8,7 @@
 
 protocol MapViewable: class {
     func update(_ model: [Venue])
+    func showError(error: FoursquareError) 
     func update(with photo: String, for venueId: String) 
     func updateUserLocation(_ locationViewModel: MapViewController.LocationViewModel) 
 }

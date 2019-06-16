@@ -10,13 +10,13 @@ import Foundation
 import Alamofire
 
 protocol VenueFetching {
-    func fetchVenues(coordinate: String, completion: @escaping ([Venue]) -> Void)
+    func fetchVenues(coordinate: String, completion: @escaping ([Venue]?, FoursquareError?) -> Void)
     func fetchVenuePhotos(venueId: String, completion: @escaping ([Photo]) -> Void)
     func fetchVenueDetails(venueId: String, completion: @escaping ((Venue?, FoursquareError?) -> Void ))
 }
 
 class VenuService: VenueFetching {
-    func fetchVenues(coordinate: String, completion: @escaping ([Venue]) -> Void) {
+    func fetchVenues(coordinate: String, completion: @escaping ([Venue]?, FoursquareError?) -> Void) {
         Alamofire.request(Router.fetchRestaurants(coordinates: coordinate)).responseJSON { (response) in
          
             if response.result.isSuccess {
@@ -24,13 +24,20 @@ class VenuService: VenueFetching {
                     do {
                         let JSON = try JSONDecoder().decode(SearchResult.self, from: data)
                         let venues = JSON.response.venues
-                        completion(venues)
+                        completion(venues, nil)
                     }
-                    catch {print("Error processing data \(error)")}
+                    catch {
+                        print("Error processing data \(error)")
+                        completion(nil, .JSONParsing)
+                    }
                 }
             } else {
                 print("Error\(String(describing: response.result.error))")
-                completion([Venue]())
+                if response.result.error?.code == -1009 {
+                    completion(nil, .noInternetConnection)
+                } else {
+                    completion(nil, .noResponse)
+                }
             }
         }
     }
