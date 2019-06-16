@@ -19,10 +19,10 @@ class MapViewController: UIViewController {
     var venues = [Venue]()
     var venuePhotos : [String: String] = [:]
     var indexOfCellBeforeDragging = 0
-    var scrollToItem = false
+    var scrollToItem = true
     var selectedItemIndex: Int = 0 {
         didSet {
-            openAnnotation(atIndext: selectedItemIndex)
+            selectAnnotation(atIndext: selectedItemIndex)
         }
     }
     
@@ -140,7 +140,7 @@ extension MapViewController : MKMapViewDelegate {
         }
     }
     
-    func openAnnotation(atIndext index: Int) {
+    func selectAnnotation(atIndext index: Int) {
         scrollToItem = false
         if let annotation = (mapView.annotations.first { (annotation) -> Bool in
             let venueAnnotation = annotation as? VenueAnnotation

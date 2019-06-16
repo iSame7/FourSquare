@@ -52,7 +52,7 @@ enum Router: URLRequestConvertible {
         urlRequest.httpMethod = method.rawValue
         
         urlRequest = try URLEncoding.default.encode(urlRequest, with: parameters)
-        print("URL: \(urlRequest.url)")
+        print("URL: \(String(describing: urlRequest.url))")
         return urlRequest
     }
     
@@ -64,5 +64,4 @@ enum Router: URLRequestConvertible {
         
         return (clientId, clientSecret, todaysDate)
     }
-
 }

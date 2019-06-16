@@ -75,16 +75,4 @@ extension LocationService: CLLocationManagerDelegate {
         locationUpdateCompletion(Location(lat: location.coordinate.latitude, lng: location.coordinate.longitude, address: nil, crossStreet: nil, distance: nil, postalCode: nil, cc: nil, city: nil, state: nil, country: nil))
         locationManager.delegate = nil
     }
-    
-    func locationManager(manager: CLLocationManager, didUpdateToLocation newLocation: CLLocation, fromLocation oldLocation: CLLocation) {
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("did fail with error: \(error)")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        print("did change Authorization: \(status)")
-        
-    }
 }
