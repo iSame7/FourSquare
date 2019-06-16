@@ -16,9 +16,21 @@ protocol VenueFetching {
 }
 
 class VenuService: VenueFetching {
+    let sessionManager: SessionManager
+    let requestRetrier: RequestRetrier
+    let networkRechabilityManager: NetworkReachabilityManager
+    
+    init(sessionManager: SessionManager, requestRetrier: RequestRetrier, networkRechabilityManager: NetworkReachabilityManager) {
+        self.sessionManager = sessionManager
+        self.requestRetrier = requestRetrier
+        self.networkRechabilityManager = networkRechabilityManager
+        
+        self.sessionManager.retrier = self.requestRetrier
+    }
+    
     func fetchVenues(coordinate: String, completion: @escaping ([Venue]?, FoursquareError?) -> Void) {
-        Alamofire.request(Router.fetchRestaurants(coordinates: coordinate)).responseJSON { (response) in
-         
+        sessionManager.request(Router.fetchRestaurants(coordinates: coordinate)).responseJSON { [weak self] (response) in
+            
             if response.result.isSuccess {
                 if let data = response.data {
                     do {
@@ -43,7 +55,7 @@ class VenuService: VenueFetching {
     }
     
     func fetchVenuePhotos(venueId: String, completion: @escaping ([Photo]) -> Void) {
-        Alamofire.request(Router.fetchPhotos(venueId: venueId)).responseJSON { (response) in
+        sessionManager.request(Router.fetchPhotos(venueId: venueId)).responseJSON { (response) in
             
             if response.result.isSuccess {
                 if let data = response.data {
@@ -62,7 +74,7 @@ class VenuService: VenueFetching {
     }
     
     func fetchVenueDetails(venueId: String, completion: @escaping ((Venue?, FoursquareError?) -> Void)) {
-        Alamofire.request(Router.fetchDetails(venueId: venueId)).responseJSON { (response) in
+        sessionManager.request(Router.fetchDetails(venueId: venueId)).responseJSON { [weak self] (response) in
             
             if response.result.isSuccess {
                 if let data = response.data {

@@ -8,6 +8,7 @@
 
 import Swinject
 import CoreLocation
+import Alamofire
 
 class MapBuilder: MapBuilding {
     private let container: Container
@@ -20,6 +21,7 @@ class MapBuilder: MapBuilding {
     func buildMapModule() -> FourSquare.Module? {
         registerView()
         registerLocationService()
+        registerNetwork()
         registerVenueService()
         registerInteractor()
         registerRouter()
@@ -56,9 +58,25 @@ class MapBuilder: MapBuilding {
         }).inObjectScope(.container)
     }
     
+    func registerNetwork() {
+        container.register(SessionManager.self, factory: { r in
+            SessionManager()
+        }).inObjectScope(.container)
+        
+        container.register(RequestRetrier.self, factory: { r in
+            NetworkRequestRetrier()
+        }).inObjectScope(.container)
+        
+        container.register(NetworkReachabilityManager.self, factory: { r in
+            guard let network = NetworkReachabilityManager(host: "api.foursquare.com") else {
+                fatalError("Couldn't creat NetworkReachabilityManager instance")
+            }
+            return network
+        }).inObjectScope(.container)
+    }
     private func registerVenueService() {
-        container.register(VenueFetching.self, factory: { _ in
-            VenuService()
+        container.register(VenueFetching.self, factory: { r in
+            VenuService(sessionManager: r.resolve(SessionManager.self)!, requestRetrier: r.resolve(RequestRetrier.self)!, networkRechabilityManager: r.resolve(NetworkReachabilityManager.self)!)
         }).inObjectScope(.container)
     }
     
