@@ -153,12 +153,31 @@ extension MapViewController : MKMapViewDelegate {
             let selectedVenue = venues.first(where: { $0.name == venueAnnotation?.title })
 
             if let selectedVenue = selectedVenue {
-                let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
-                let coordinates = CLLocationCoordinate2D(latitude: selectedVenue.location.lat, longitude: selectedVenue.location.lng)
-                let viewRegion = MKCoordinateRegion(center: coordinates, span: span)
-                mapView.setRegion(viewRegion, animated: true)
+                let selectedVenueLocation = CLLocation(latitude: CLLocationDegrees(selectedVenue.location.lat), longitude: CLLocationDegrees(selectedVenue.location.lng))
+                // only move to another region if the selected venue's location in not in the current map region
+                if !regionContains(region: mapView.region, location: selectedVenueLocation) {
+                    let coordinates = CLLocationCoordinate2D(latitude: selectedVenue.location.lat, longitude: selectedVenue.location.lng)
+                    let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                    let viewRegion = MKCoordinateRegion(center: coordinates, span: span)
+                    mapView.setRegion(viewRegion, animated: true)
+                }
             }
         }
+    }
+    
+    /* Standardises and angle to [-180 to 180] degrees */
+    func standardAngle( angle: inout CLLocationDegrees) -> CLLocationDegrees {
+        angle = angle.truncatingRemainder(dividingBy: 360)
+        return angle < -180 ? -360 - angle : angle > 180 ? 360 - 180 : angle
+    }
+    
+    /* confirms that a region contains a location */
+    func regionContains(region: MKCoordinateRegion, location: CLLocation) -> Bool {
+        var latitudeAngleDiff = region.center.latitude - location.coordinate.latitude
+        let deltaLat = abs(standardAngle(angle: &latitudeAngleDiff))
+        var longitudeAngleDiff = region.center.longitude - location.coordinate.longitude
+        let deltalong = abs(standardAngle(angle:&longitudeAngleDiff))
+        return region.span.latitudeDelta >= deltaLat && region.span.longitudeDelta >= deltalong
     }
 }
 
