@@ -8,9 +8,6 @@
 
 import Alamofire
 
-let CLIENT_ID = "PWWSABHMRSWVYZNHL1QG20A5050WJAI2MIU3AUFWVRQHCITA"
-let CLIENT_SECRET = "WFF2451MT2QIYKDCQEXN3ADT5ZKCYQOFIRXPODYUZSSYBSDT"
-
 enum Router: URLRequestConvertible {
     case fetchRestaurants(coordinates: String)
     case fetchPhotos(venueId: String)
