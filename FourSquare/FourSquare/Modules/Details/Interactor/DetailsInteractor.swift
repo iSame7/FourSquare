@@ -16,4 +16,7 @@ class DetailsInteractor: DetailsInteracting {
         self.venueService = venueService
     }
 
+    func fetchVenueDetails(venueId: String, completion: @escaping (Venue?, FoursquareError?) -> Void) {
+        venueService.fetchVenueDetails(venueId: venueId, completion: completion)
+    }
 }

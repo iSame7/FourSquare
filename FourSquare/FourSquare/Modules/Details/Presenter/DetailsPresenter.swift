@@ -20,6 +20,16 @@ class DetailsPresenter: DetailsPresenting {
         self.mapURLHandler = mapURLHandler
         self.router = router
     }
+
+    func getVenueDetails(venueId: String) {
+        interactor?.fetchVenueDetails(venueId: venueId, completion: { [weak self] (venue, error) in
+            if let venue = venue {
+                self?.view?.updateWith(viewModel: DetailsViewController.ViewModel(venue: venue, venuePhotoURL: nil))
+            } else if let error = error {
+                self?.view?.updateWith(error: error)
+            }
+        })
+    }
     
     func showMap(type: MapType, location: Location) {
         mapURLHandler.openMap(location: location, type: type)

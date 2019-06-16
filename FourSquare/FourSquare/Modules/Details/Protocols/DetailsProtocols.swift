@@ -27,6 +27,7 @@ protocol DetailsBuilding: class {
 
 //MARK: Presenter -
 protocol DetailsPresenting: class {
+    func getVenueDetails(venueId: String) 
     func showMap(type: MapType, location: Location)
     func showTipsViewController(tips: [Tip], venuePhotoURL: String?)
     func dismiss() 
@@ -34,12 +35,13 @@ protocol DetailsPresenting: class {
 
 //MARK: Interactor -
 protocol DetailsInteracting: class {
-
-  var presenter: DetailsPresenting?  { get set }
+    var presenter: DetailsPresenting?  { get set }
+    func fetchVenueDetails(venueId: String, completion: @escaping (Venue?, FoursquareError?) -> Void)
 }
 
 //MARK: View -
 protocol DetailsViewable: class {
-
-  var presenter: DetailsPresenting?  { get set }
+    var presenter: DetailsPresenting?  { get set }
+    func updateWith(viewModel: DetailsViewController.ViewModel)
+    func updateWith(error: FoursquareError)
 }

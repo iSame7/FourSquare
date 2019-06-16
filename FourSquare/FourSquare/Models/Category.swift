@@ -16,5 +16,5 @@ struct Category: Codable {
         let prefix: String?
         let suffix: String?
     }
-    let primary: Bool 
+    let primary: Bool?
 }

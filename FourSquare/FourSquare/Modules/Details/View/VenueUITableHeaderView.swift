@@ -49,11 +49,12 @@ class VenueUITableHeaderView: UIView, NibOwnerLoadable {
     func configure(with viewModel: ViewModel) {
         titleLabel.text = viewModel.title
         descriptionLabel.text = viewModel.description
-//        if let imagePath = viewModel.imageURL, let imageURL = URL(string: imagePath) {
-//            Nuke.loadImage(with: imageURL, options: ImageLoadingOptions(placeholder: #imageLiteral(resourceName: "placeholder"), transition: nil, failureImage: #imageLiteral(resourceName: "restaurant"), failureImageTransition: nil, contentModes: nil), into: imageView, progress: nil, completion: nil)
-//        } else {
-            imageView.image = #imageLiteral(resourceName: "testBackground")
-//        }
+        let placeholderImage = UIImage(named: "restraunt-placeholder2")?.blur(blurAmount: 2.5)
+        if let imagePath = viewModel.imageURL, let imageURL = URL(string: imagePath) {
+            Nuke.loadImage(with: imageURL, options: ImageLoadingOptions(placeholder: placeholderImage, transition: nil, failureImage: placeholderImage, failureImageTransition: nil, contentModes: nil), into: imageView, progress: nil, completion: nil)
+        } else {
+            imageView.image = placeholderImage
+        }
     }
     
     @IBAction func backButtonAction(_ sender: Any) {

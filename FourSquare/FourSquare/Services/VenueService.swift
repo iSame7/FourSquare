@@ -12,6 +12,7 @@ import Alamofire
 protocol VenueFetching {
     func fetchVenues(coordinate: String, completion: @escaping ([Venue]) -> Void)
     func fetchVenuePhotos(venueId: String, completion: @escaping ([Photo]) -> Void)
+    func fetchVenueDetails(venueId: String, completion: @escaping ((Venue?, FoursquareError?) -> Void ))
 }
 
 class VenuService: VenueFetching {
@@ -49,6 +50,27 @@ class VenuService: VenueFetching {
             } else {
                 print("Error\(String(describing: response.result.error))")
                 completion([Photo]())
+            }
+        }
+    }
+    
+    func fetchVenueDetails(venueId: String, completion: @escaping ((Venue?, FoursquareError?) -> Void)) {
+        Alamofire.request(Router.fetchDetails(venueId: venueId)).responseJSON { (response) in
+            
+            if response.result.isSuccess {
+                if let data = response.data {
+                    do {
+                        let JSON = try JSONDecoder().decode(DetailsResult.self, from: data)
+                        let venue = JSON.response.venue
+                        completion(venue, nil)
+                    }
+                    catch {
+                        print("Error processing data \(error)")
+                        completion(nil, .JSONParsing)
+                    }
+                }
+            } else {
+                completion(nil, .noResponse)
             }
         }
     }

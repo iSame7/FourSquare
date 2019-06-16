@@ -10,27 +10,31 @@
 
 import UIKit
 
-class DetailsViewController: UIViewController, DetailsViewable {
-	var presenter: DetailsPresenting?
+class DetailsViewController: UIViewController {
+    var presenter: DetailsPresenting?
     var headerView: VenueUITableHeaderView?
     let screenWidth = UIScreen.main.bounds.width
     var viewModel: ViewModel?
     
     let transition = Transition()
     var imageFrame = CGRect.zero
-
+    
     @IBOutlet weak var tableView: UITableView!
     
-	override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         setUpHeader()
         setUpTableView()
+        
+        if let viewModel = viewModel {
+            presenter?.getVenueDetails(venueId: viewModel.venue.id)
+        }
     }
     
     func setUpHeader() {
-        headerView = VenueUITableHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenWidth/2), backAction: { [weak self] in
+        headerView = VenueUITableHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 500), backAction: { [weak self] in
             self?.presenter?.dismiss()
         })
         if let viewModel = viewModel, let category = viewModel.venue.categories.first {
@@ -42,19 +46,19 @@ class DetailsViewController: UIViewController, DetailsViewable {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 99
-        tableView.contentInset  = UIEdgeInsets(top: screenWidth/2, left: 0, bottom: 0, right: 0)
+        tableView.contentInset  = UIEdgeInsets(top: 300, left: 0, bottom: 0, right: 0)
         tableView.addSubview(headerView!)
         tableView.tableFooterView = UIView()
     }
     
     func presentMapActionSheet(venue: Venue) {
-        let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        let optionMenu = UIAlertController(title: "Directions", message: "Which app do you want to use?", preferredStyle: .actionSheet)
         
-        optionMenu.addAction(UIAlertAction(title: "Apple Maps", style: .default) { [weak self] _ in
+        optionMenu.addAction(UIAlertAction(title: "Use Apple Maps", style: .default) { [weak self] _ in
             self?.presenter?.showMap(type: .apple, location: venue.location)
         })
         
-        optionMenu.addAction(UIAlertAction(title: "Google Maps", style: .default) { [weak self] _ in
+        optionMenu.addAction(UIAlertAction(title: "Use Google Maps", style: .default) { [weak self] _ in
             self?.presenter?.showMap(type: .google, location: venue.location)
         })
         
@@ -77,7 +81,7 @@ extension DetailsViewController: StoryboardInstantiatable {
 // MARK: - UIScrollViewDelegate
 extension DetailsViewController: UIScrollViewDelegate {
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//        self.tableView.reloadData()
+        //        self.tableView.reloadData()
     }
     
     
@@ -115,36 +119,47 @@ extension DetailsViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         transition.destinationFrame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
-
+        
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RatingCell") as! RatingUITableViewCell
-            cell.setup()
+            if let viewModel = viewModel {
+                cell.setup(with: RatingUITableViewCell.ViewModel(rating: viewModel.venue.rating ?? 0.0, visitorsCount: Int(viewModel.venue.stats?.visitsCount ?? 0), likesCount: viewModel.venue.likes?.count ?? 0, checkInsCount: Int(viewModel.venue.stats?.checkinsCount ?? 0), tipCount: viewModel.venue.stats?.tipCount ?? 0))
+            }
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell") as! AddressTableViewCell
+            if let viewModel = viewModel {
+                let categories = viewModel.venue.categories.map{$0.name}
+                cell.setup(with: AddressTableViewCell.ViewModel(address: viewModel.venue.location.address ?? "-", categories: categories.joined(separator: ", "), hours: viewModel.venue.hours?.status ?? "-", postalCode: viewModel.venue.location.postalCode ?? "-"))
+            }
             return cell
         } else if indexPath.row == 2 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "MapCell") as! MapTableViewCell
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGalleryCell") as! PhotoGalleryTableViewCell
+            if let viewModel = viewModel, let groups = viewModel.venue.photos?.groups, let photos = groups[1].items {
+                cell.setup(with: PhotoGalleryTableViewCell.ViewModel(photos: photos), imageSelectionHandler: { [weak self] (galleryPreview) in
+                    self?.present(galleryPreview, animated: true, completion: nil)
+                })
+            }
             return cell
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TipsCell") as! TipsTableViewCell
             cell.setup(with: TipsTableViewCell.ViewModel(tips: [Int]())) { [weak self] in
                 tableView.deselectRow(at: indexPath, animated: true)
-
+                
                 guard let `self` = self else { return }
                 let a = tableView.convert(cell.frame, to: tableView.superview)
                 self.transition.startingFrame = CGRect(x: a.minX+15, y: a.minY+15, width: 375 / 414 * self.view.frame.width - 30, height: 408 / 736 * self.view.frame.height - 30)
-          
+                
                 self.presenter?.showTipsViewController(tips: [Tip(createdAt: "April 22, 2019", text: "This tiny little venue has tiny little prices for their delightful dumplings. The sesame pancakes are also great, and perfect to grab to-go on your way to picnic in the park, just a block west.", userName: "Bellamy")], venuePhotoURL: "")
             }
             return cell
@@ -174,5 +189,15 @@ extension DetailsViewController: UIViewControllerTransitioningDelegate {
         transition.transitionMode = .dismiss
         
         return transition
+    }
+}
+
+extension DetailsViewController: DetailsViewable {
+    func updateWith(error: FoursquareError) {
+    }
+    
+    func updateWith(viewModel: DetailsViewController.ViewModel) {
+        self.viewModel = viewModel
+        tableView.reloadData()
     }
 }

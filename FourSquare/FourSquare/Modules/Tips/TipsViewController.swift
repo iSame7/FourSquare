@@ -25,7 +25,7 @@ class TipsViewController: UIViewController, TipsViewable {
     }
     
     func setUpHeader() {
-        headerView = VenueUITableHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: screenWidth/2), backAction: { [weak self] in
+        headerView = VenueUITableHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 500), backAction: { [weak self] in
             self?.presenter?.dismiss()
         })
         if let viewModel = viewModel {
@@ -36,7 +36,7 @@ class TipsViewController: UIViewController, TipsViewable {
     func setUpTableView() {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 99
-        tableView.contentInset  = UIEdgeInsets(top: screenWidth/2, left: 0, bottom: 0, right: 0)
+        tableView.contentInset  = UIEdgeInsets(top: 300, left: 0, bottom: 0, right: 0)
         tableView.addSubview(headerView!)
         
         tableView.tableFooterView = UIView()

@@ -34,7 +34,7 @@ class MapPresenter: MapPresenting {
         mapInteractor.getVenuePhotos(venueId: venueId) { [weak self] photos in
             print("Photos: \(photos)")
             if !photos.isEmpty {
-                let photo = "\(photos[0].prefix)500x500\(photos[0].suffix)"
+                let photo = "\(photos[0].prefix)700x500\(photos[0].suffix)"
                 self?.view?.update(with: photo, for: venueId)
             }
 

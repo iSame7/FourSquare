@@ -11,7 +11,7 @@ import UIKit
 class BaseCollectionViewLayout: UICollectionViewLayout {
     private var _layoutMap = [IndexPath : UICollectionViewLayoutAttributes]()
     private var _columnsYoffset: [CGFloat]!
-    private var _contentSize: CGSize!
+    private var _contentSize: CGSize = CGSize(width: 0, height: 0)
     
     private(set) var totalItemsInSection = 0
     
