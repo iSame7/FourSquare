@@ -22,7 +22,6 @@
 		502C30102249A0B700D8BD1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502C300E2249A0B700D8BD1B /* Main.storyboard */; };
 		502C30122249A0B800D8BD1B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 502C30112249A0B800D8BD1B /* Assets.xcassets */; };
 		502C30152249A0B800D8BD1B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 502C30132249A0B800D8BD1B /* LaunchScreen.storyboard */; };
-		502C30202249A0B800D8BD1B /* FourSquareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502C301F2249A0B800D8BD1B /* FourSquareTests.swift */; };
 		502C302B2249A0B800D8BD1B /* FourSquareUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502C302A2249A0B800D8BD1B /* FourSquareUITests.swift */; };
 		502C303F2249A89300D8BD1B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502C303E2249A89300D8BD1B /* MapViewController.swift */; };
 		502C30452249AA0B00D8BD1B /* MapPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502C30442249AA0B00D8BD1B /* MapPresenting.swift */; };
@@ -154,7 +153,6 @@
 		502C30142249A0B800D8BD1B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		502C30162249A0B800D8BD1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		502C301B2249A0B800D8BD1B /* FourSquareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSquareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		502C301F2249A0B800D8BD1B /* FourSquareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareTests.swift; sourceTree = "<group>"; };
 		502C30212249A0B800D8BD1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		502C30262249A0B800D8BD1B /* FourSquareUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FourSquareUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		502C302A2249A0B800D8BD1B /* FourSquareUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourSquareUITests.swift; sourceTree = "<group>"; };
@@ -352,7 +350,6 @@
 			isa = PBXGroup;
 			children = (
 				502CD28B22B70E2300EACFFC /* Modules */,
-				502C301F2249A0B800D8BD1B /* FourSquareTests.swift */,
 				502C30212249A0B800D8BD1B /* Info.plist */,
 			);
 			path = FourSquareTests;
@@ -1074,7 +1071,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				502C30202249A0B800D8BD1B /* FourSquareTests.swift in Sources */,
 				502CD29822B73A0400EACFFC /* MapInteractorTests.swift in Sources */,
 				502CD28E22B70E4300EACFFC /* MapRouterTests.swift in Sources */,
 				502CD29022B720E700EACFFC /* MapPresenterTests.swift in Sources */,
@@ -1249,8 +1245,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://api.foursquare.com/v2";
-				CLIENT_ID = UNOJL33NKPY1PC1A3VFPIT1YHRGZ23UYFH5XKBI2YO4KZALJ;
-				CLIENT_SECRET = K4BPEB3KQMNSV5ZZUWFA4Y4PY1IRT1LAW5FHZUSFFA4B5KE4;
+				CLIENT_ID = V1U04101AYVMPWT2IBCL5HB5TZ2MSJVYB4HYJVRHK1KFMIYE;
+				CLIENT_SECRET = M2AU4OU3W4SJUE32V21JOTNUP0NLQHLM53H2XZRIXAV4WGZ2;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U7YW5472M;
 				INFOPLIST_FILE = FourSquare/Info.plist;
@@ -1271,8 +1267,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://api.foursquare.com/v2";
-				CLIENT_ID = UNOJL33NKPY1PC1A3VFPIT1YHRGZ23UYFH5XKBI2YO4KZALJ;
-				CLIENT_SECRET = K4BPEB3KQMNSV5ZZUWFA4Y4PY1IRT1LAW5FHZUSFFA4B5KE4;
+				CLIENT_ID = V1U04101AYVMPWT2IBCL5HB5TZ2MSJVYB4HYJVRHK1KFMIYE;
+				CLIENT_SECRET = M2AU4OU3W4SJUE32V21JOTNUP0NLQHLM53H2XZRIXAV4WGZ2;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U7YW5472M;
 				INFOPLIST_FILE = FourSquare/Info.plist;

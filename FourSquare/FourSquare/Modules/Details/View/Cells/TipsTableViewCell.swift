@@ -56,7 +56,7 @@ extension TipsTableViewCell: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TipCell") as! TipTableViewCell
         
         if let tip = viewModel?.tips[indexPath.row], let user = tip.user, let userPhoto = user.photo {
-            cell.setup(with: TipTableViewCell.ViewModel(userName: user.firstName ?? "--", userImageURL: "\(userPhoto.prefix)500x500\(userPhoto.suffix)", createdAt: Double(tip.createdAt ?? "-")?.getDateStringFromUTC() ?? "-", tipText: tip.text ?? "--"))
+            cell.setup(with: TipTableViewCell.ViewModel(userName: user.firstName ?? "--", userImageURL: "\(userPhoto.prefix)500x500\(userPhoto.suffix)", createdAt: Double(tip.createdAt ?? 0).getDateStringFromUTC(), tipText: tip.text ?? "--"))
         }
         return cell
     }

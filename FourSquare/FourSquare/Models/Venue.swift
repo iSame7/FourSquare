@@ -55,7 +55,7 @@ struct TipsGroup: Codable {
 }
 
 struct TipItem: Codable {
-    let createdAt: String?
+    let createdAt: Int?
     let text: String?
     let user: User?
 }
