@@ -52,6 +52,7 @@
 		502CD28622B6D50F00EACFFC /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28522B6D50F00EACFFC /* DeviceManager.swift */; };
 		502CD28822B6D82500EACFFC /* Error+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28722B6D82500EACFFC /* Error+Util.swift */; };
 		502CD28A22B6E2FC00EACFFC /* NetworkRequestRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28922B6E2FC00EACFFC /* NetworkRequestRetrier.swift */; };
+		502CD28E22B70E4300EACFFC /* MapRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28D22B70E4300EACFFC /* MapRouterTests.swift */; };
 		502F44C32253EC2D0045C424 /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F44C22253EC2D0045C424 /* SharedContainer.swift */; };
 		50327BCF22AE77A800166098 /* TipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BCE22AE77A800166098 /* TipsTableViewCell.swift */; };
 		50327BD222AE7E1400166098 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD122AE7E1400166098 /* TipTableViewCell.swift */; };
@@ -181,6 +182,7 @@
 		502CD28522B6D50F00EACFFC /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
 		502CD28722B6D82500EACFFC /* Error+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Util.swift"; sourceTree = "<group>"; };
 		502CD28922B6E2FC00EACFFC /* NetworkRequestRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestRetrier.swift; sourceTree = "<group>"; };
+		502CD28D22B70E4300EACFFC /* MapRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouterTests.swift; sourceTree = "<group>"; };
 		502F44C22253EC2D0045C424 /* SharedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedContainer.swift; sourceTree = "<group>"; };
 		50327BCE22AE77A800166098 /* TipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewCell.swift; sourceTree = "<group>"; };
 		50327BD122AE7E1400166098 /* TipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
@@ -339,6 +341,7 @@
 		502C301E2249A0B800D8BD1B /* FourSquareTests */ = {
 			isa = PBXGroup;
 			children = (
+				502CD28B22B70E2300EACFFC /* Modules */,
 				502C301F2249A0B800D8BD1B /* FourSquareTests.swift */,
 				502C30212249A0B800D8BD1B /* Info.plist */,
 			);
@@ -506,6 +509,22 @@
 				502CD28522B6D50F00EACFFC /* DeviceManager.swift */,
 			);
 			path = "In App Notification";
+			sourceTree = "<group>";
+		};
+		502CD28B22B70E2300EACFFC /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				502CD28C22B70E2A00EACFFC /* Map */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		502CD28C22B70E2A00EACFFC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				502CD28D22B70E4300EACFFC /* MapRouterTests.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		50327BD022AE7DFB00166098 /* Tips */ = {
@@ -1033,6 +1052,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				502C30202249A0B800D8BD1B /* FourSquareTests.swift in Sources */,
+				502CD28E22B70E4300EACFFC /* MapRouterTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
