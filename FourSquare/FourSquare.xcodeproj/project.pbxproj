@@ -56,6 +56,8 @@
 		502CD29022B720E700EACFFC /* MapPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28F22B720E700EACFFC /* MapPresenterTests.swift */; };
 		502CD29422B7274200EACFFC /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD29322B7274200EACFFC /* MockNavigationController.swift */; };
 		502CD29622B7278400EACFFC /* MockDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD29522B7278400EACFFC /* MockDetailsBuilder.swift */; };
+		502CD29822B73A0400EACFFC /* MapInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD29722B73A0400EACFFC /* MapInteractorTests.swift */; };
+		502CD29A22B73BCE00EACFFC /* MockVenueService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD29922B73BCE00EACFFC /* MockVenueService.swift */; };
 		502F44C32253EC2D0045C424 /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F44C22253EC2D0045C424 /* SharedContainer.swift */; };
 		50327BCF22AE77A800166098 /* TipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BCE22AE77A800166098 /* TipsTableViewCell.swift */; };
 		50327BD222AE7E1400166098 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD122AE7E1400166098 /* TipTableViewCell.swift */; };
@@ -189,6 +191,8 @@
 		502CD28F22B720E700EACFFC /* MapPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenterTests.swift; sourceTree = "<group>"; };
 		502CD29322B7274200EACFFC /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
 		502CD29522B7278400EACFFC /* MockDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailsBuilder.swift; sourceTree = "<group>"; };
+		502CD29722B73A0400EACFFC /* MapInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapInteractorTests.swift; sourceTree = "<group>"; };
+		502CD29922B73BCE00EACFFC /* MockVenueService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockVenueService.swift; sourceTree = "<group>"; };
 		502F44C22253EC2D0045C424 /* SharedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedContainer.swift; sourceTree = "<group>"; };
 		50327BCE22AE77A800166098 /* TipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewCell.swift; sourceTree = "<group>"; };
 		50327BD122AE7E1400166098 /* TipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
@@ -531,6 +535,7 @@
 			children = (
 				502CD28D22B70E4300EACFFC /* MapRouterTests.swift */,
 				502CD28F22B720E700EACFFC /* MapPresenterTests.swift */,
+				502CD29722B73A0400EACFFC /* MapInteractorTests.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -540,6 +545,7 @@
 			children = (
 				502CD29322B7274200EACFFC /* MockNavigationController.swift */,
 				502CD29522B7278400EACFFC /* MockDetailsBuilder.swift */,
+				502CD29922B73BCE00EACFFC /* MockVenueService.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1069,8 +1075,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				502C30202249A0B800D8BD1B /* FourSquareTests.swift in Sources */,
+				502CD29822B73A0400EACFFC /* MapInteractorTests.swift in Sources */,
 				502CD28E22B70E4300EACFFC /* MapRouterTests.swift in Sources */,
 				502CD29022B720E700EACFFC /* MapPresenterTests.swift in Sources */,
+				502CD29A22B73BCE00EACFFC /* MockVenueService.swift in Sources */,
 				502CD29622B7278400EACFFC /* MockDetailsBuilder.swift in Sources */,
 				502CD29422B7274200EACFFC /* MockNavigationController.swift in Sources */,
 			);

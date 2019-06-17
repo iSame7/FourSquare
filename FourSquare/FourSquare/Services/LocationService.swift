@@ -12,7 +12,7 @@ import UIKit
 import MapKit
 
 protocol LocationServiceChecking {
-    func retuestAuthorization()
+    func requestAuthorization()
     func requestUserLocation(completion: @escaping UserLocationBlock)
 }
 
@@ -29,7 +29,7 @@ class LocationService: NSObject, LocationServiceChecking {
 }
 
 extension LocationService {
-    func retuestAuthorization() {
+    func requestAuthorization() {
         if CLLocationManager.locationServicesEnabled() {
             print("location services available")
             switch CLLocationManager.authorizationStatus() {

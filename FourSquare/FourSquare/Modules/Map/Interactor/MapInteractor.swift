@@ -23,7 +23,7 @@ class MapInteractor: MapInteracting {
     }
     
     func determineUserLocation(completion: @escaping UserLocationBlock) {
-        locationService.retuestAuthorization()
+        locationService.requestAuthorization()
         locationService.requestUserLocation { location in
             completion(location)
         }
