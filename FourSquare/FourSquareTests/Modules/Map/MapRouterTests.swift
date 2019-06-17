@@ -27,28 +27,3 @@ class MapRouterTests: XCTestCase {
         XCTAssertNotNil(mockNavigationController.viewControllerPushed as? DetailsViewController)
     }
 }
-
-private class MockNavigationController: NavigationControlling {
-    
-    var isPushCalled = false
-    var isPoped = false
-    var viewControllerPushed: UIViewController?
-    
-    func pushViewController(_ viewController: UIViewController, animated: Bool) {
-        isPushCalled = true
-        viewControllerPushed = viewController
-    }
-    
-    func popViewController(animated: Bool) -> UIViewController? {
-        isPoped = true
-        
-        return UIViewController()
-    }
-    
-}
-
-private class MockDetailsBuilder: DetailsBuilding {
-    func buildModuleWith(venue: Venue, venuePhotoURL: String?) -> FourSquare.Module? {
-        return FourSquare.Module(viewController: DetailsViewController())
-    }
-}

@@ -6,6 +6,8 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
+import UIKit
+
 class MapPresenter: MapPresenting {
     private weak var view: MapViewable?
     private let mapInteractor: MapInteracting
@@ -46,7 +48,7 @@ class MapPresenter: MapPresenting {
     }
     
     func showDetailsViewController(venue: Venue, venuePhotoURL: String?) {
-        guard let vmapViewController = view as? MapViewController else { return }
+        guard let vmapViewController = view as? UIViewController else { return }
         
         router.navigateToDetailsModule(navController: vmapViewController.navigationController, venue: venue, venuePhotoURL: venuePhotoURL)
     }

@@ -53,6 +53,9 @@
 		502CD28822B6D82500EACFFC /* Error+Util.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28722B6D82500EACFFC /* Error+Util.swift */; };
 		502CD28A22B6E2FC00EACFFC /* NetworkRequestRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28922B6E2FC00EACFFC /* NetworkRequestRetrier.swift */; };
 		502CD28E22B70E4300EACFFC /* MapRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28D22B70E4300EACFFC /* MapRouterTests.swift */; };
+		502CD29022B720E700EACFFC /* MapPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD28F22B720E700EACFFC /* MapPresenterTests.swift */; };
+		502CD29422B7274200EACFFC /* MockNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD29322B7274200EACFFC /* MockNavigationController.swift */; };
+		502CD29622B7278400EACFFC /* MockDetailsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502CD29522B7278400EACFFC /* MockDetailsBuilder.swift */; };
 		502F44C32253EC2D0045C424 /* SharedContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 502F44C22253EC2D0045C424 /* SharedContainer.swift */; };
 		50327BCF22AE77A800166098 /* TipsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BCE22AE77A800166098 /* TipsTableViewCell.swift */; };
 		50327BD222AE7E1400166098 /* TipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD122AE7E1400166098 /* TipTableViewCell.swift */; };
@@ -183,6 +186,9 @@
 		502CD28722B6D82500EACFFC /* Error+Util.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Util.swift"; sourceTree = "<group>"; };
 		502CD28922B6E2FC00EACFFC /* NetworkRequestRetrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestRetrier.swift; sourceTree = "<group>"; };
 		502CD28D22B70E4300EACFFC /* MapRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRouterTests.swift; sourceTree = "<group>"; };
+		502CD28F22B720E700EACFFC /* MapPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPresenterTests.swift; sourceTree = "<group>"; };
+		502CD29322B7274200EACFFC /* MockNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNavigationController.swift; sourceTree = "<group>"; };
+		502CD29522B7278400EACFFC /* MockDetailsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailsBuilder.swift; sourceTree = "<group>"; };
 		502F44C22253EC2D0045C424 /* SharedContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedContainer.swift; sourceTree = "<group>"; };
 		50327BCE22AE77A800166098 /* TipsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsTableViewCell.swift; sourceTree = "<group>"; };
 		50327BD122AE7E1400166098 /* TipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipTableViewCell.swift; sourceTree = "<group>"; };
@@ -514,6 +520,7 @@
 		502CD28B22B70E2300EACFFC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				502CD29222B7273000EACFFC /* Mocks */,
 				502CD28C22B70E2A00EACFFC /* Map */,
 			);
 			path = Modules;
@@ -523,8 +530,18 @@
 			isa = PBXGroup;
 			children = (
 				502CD28D22B70E4300EACFFC /* MapRouterTests.swift */,
+				502CD28F22B720E700EACFFC /* MapPresenterTests.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		502CD29222B7273000EACFFC /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				502CD29322B7274200EACFFC /* MockNavigationController.swift */,
+				502CD29522B7278400EACFFC /* MockDetailsBuilder.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		50327BD022AE7DFB00166098 /* Tips */ = {
@@ -1053,6 +1070,9 @@
 			files = (
 				502C30202249A0B800D8BD1B /* FourSquareTests.swift in Sources */,
 				502CD28E22B70E4300EACFFC /* MapRouterTests.swift in Sources */,
+				502CD29022B720E700EACFFC /* MapPresenterTests.swift in Sources */,
+				502CD29622B7278400EACFFC /* MockDetailsBuilder.swift in Sources */,
+				502CD29422B7274200EACFFC /* MockNavigationController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
