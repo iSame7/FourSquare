@@ -15,6 +15,7 @@ class MockNavigationController: NavigationControlling {
     var isPushCalled = false
     var isPoped = false
     var viewControllerPushed: UIViewController?
+    var currentViewController: UIViewController?
     
     func pushViewController(_ viewController: UIViewController, animated: Bool) {
         isPushCalled = true
@@ -24,7 +25,9 @@ class MockNavigationController: NavigationControlling {
     func popViewController(animated: Bool) -> UIViewController? {
         isPoped = true
         
-        return UIViewController()
+        currentViewController = MapViewController()
+        
+        return DetailsViewController()
     }
     
 }

@@ -12,6 +12,9 @@
 		5009869F22A11B980029AA13 /* VenueUITableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5009869E22A11B980029AA13 /* VenueUITableHeaderView.swift */; };
 		500986A122A11C160029AA13 /* VenueUITableHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 500986A022A11C160029AA13 /* VenueUITableHeaderView.xib */; };
 		500986A322A120E30029AA13 /* UIView+nib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500986A222A120E30029AA13 /* UIView+nib.swift */; };
+		50195F8322B82A4400D0D319 /* DetailsRouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50195F8222B82A4400D0D319 /* DetailsRouterTests.swift */; };
+		50195F8522B82B5800D0D319 /* MockTipsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50195F8422B82B5800D0D319 /* MockTipsBuilder.swift */; };
+		50195F8722B82E2B00D0D319 /* MockDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50195F8622B82E2B00D0D319 /* MockDetailsViewController.swift */; };
 		5029DBE522A161C900A116EE /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029DBE422A161C900A116EE /* UIView+Gradient.swift */; };
 		5029DBE822A417B100A116EE /* RatingUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029DBE722A417B100A116EE /* RatingUITableViewCell.swift */; };
 		5029DBEC22A4199500A116EE /* RatingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029DBEB22A4199500A116EE /* RatingCircleView.swift */; };
@@ -140,6 +143,9 @@
 		5009869E22A11B980029AA13 /* VenueUITableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueUITableHeaderView.swift; sourceTree = "<group>"; };
 		500986A022A11C160029AA13 /* VenueUITableHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VenueUITableHeaderView.xib; sourceTree = "<group>"; };
 		500986A222A120E30029AA13 /* UIView+nib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+nib.swift"; sourceTree = "<group>"; };
+		50195F8222B82A4400D0D319 /* DetailsRouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRouterTests.swift; sourceTree = "<group>"; };
+		50195F8422B82B5800D0D319 /* MockTipsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTipsBuilder.swift; sourceTree = "<group>"; };
+		50195F8622B82E2B00D0D319 /* MockDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailsViewController.swift; sourceTree = "<group>"; };
 		5029DBE422A161C900A116EE /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		5029DBE722A417B100A116EE /* RatingUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingUITableViewCell.swift; sourceTree = "<group>"; };
 		5029DBEB22A4199500A116EE /* RatingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCircleView.swift; sourceTree = "<group>"; };
@@ -293,6 +299,14 @@
 				50415A0A2299EDCA00452037 /* DetailsViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		50195F8122B82A1E00D0D319 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				50195F8222B82A4400D0D319 /* DetailsRouterTests.swift */,
+			);
+			path = Details;
 			sourceTree = "<group>";
 		};
 		5029DBE622A4177300A116EE /* Cells */ = {
@@ -521,6 +535,7 @@
 		502CD28B22B70E2300EACFFC /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				50195F8122B82A1E00D0D319 /* Details */,
 				502CD29222B7273000EACFFC /* Mocks */,
 				502CD28C22B70E2A00EACFFC /* Map */,
 			);
@@ -543,6 +558,8 @@
 				502CD29322B7274200EACFFC /* MockNavigationController.swift */,
 				502CD29522B7278400EACFFC /* MockDetailsBuilder.swift */,
 				502CD29922B73BCE00EACFFC /* MockVenueService.swift */,
+				50195F8422B82B5800D0D319 /* MockTipsBuilder.swift */,
+				50195F8622B82E2B00D0D319 /* MockDetailsViewController.swift */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -1072,11 +1089,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				502CD29822B73A0400EACFFC /* MapInteractorTests.swift in Sources */,
+				50195F8522B82B5800D0D319 /* MockTipsBuilder.swift in Sources */,
 				502CD28E22B70E4300EACFFC /* MapRouterTests.swift in Sources */,
+				50195F8322B82A4400D0D319 /* DetailsRouterTests.swift in Sources */,
 				502CD29022B720E700EACFFC /* MapPresenterTests.swift in Sources */,
 				502CD29A22B73BCE00EACFFC /* MockVenueService.swift in Sources */,
 				502CD29622B7278400EACFFC /* MockDetailsBuilder.swift in Sources */,
 				502CD29422B7274200EACFFC /* MockNavigationController.swift in Sources */,
+				50195F8722B82E2B00D0D319 /* MockDetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
