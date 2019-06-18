@@ -16,6 +16,7 @@
 		50195F8522B82B5800D0D319 /* MockTipsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50195F8422B82B5800D0D319 /* MockTipsBuilder.swift */; };
 		50195F8722B82E2B00D0D319 /* MockDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50195F8622B82E2B00D0D319 /* MockDetailsViewController.swift */; };
 		50195F8922B8543200D0D319 /* DetailsPresenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50195F8822B8543200D0D319 /* DetailsPresenterTests.swift */; };
+		50195F8B22B8B54C00D0D319 /* DetailsInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50195F8A22B8B54C00D0D319 /* DetailsInteractorTests.swift */; };
 		5029DBE522A161C900A116EE /* UIView+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029DBE422A161C900A116EE /* UIView+Gradient.swift */; };
 		5029DBE822A417B100A116EE /* RatingUITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029DBE722A417B100A116EE /* RatingUITableViewCell.swift */; };
 		5029DBEC22A4199500A116EE /* RatingCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5029DBEB22A4199500A116EE /* RatingCircleView.swift */; };
@@ -148,6 +149,7 @@
 		50195F8422B82B5800D0D319 /* MockTipsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTipsBuilder.swift; sourceTree = "<group>"; };
 		50195F8622B82E2B00D0D319 /* MockDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDetailsViewController.swift; sourceTree = "<group>"; };
 		50195F8822B8543200D0D319 /* DetailsPresenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenterTests.swift; sourceTree = "<group>"; };
+		50195F8A22B8B54C00D0D319 /* DetailsInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractorTests.swift; sourceTree = "<group>"; };
 		5029DBE422A161C900A116EE /* UIView+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Gradient.swift"; sourceTree = "<group>"; };
 		5029DBE722A417B100A116EE /* RatingUITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingUITableViewCell.swift; sourceTree = "<group>"; };
 		5029DBEB22A4199500A116EE /* RatingCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCircleView.swift; sourceTree = "<group>"; };
@@ -308,6 +310,7 @@
 			children = (
 				50195F8222B82A4400D0D319 /* DetailsRouterTests.swift */,
 				50195F8822B8543200D0D319 /* DetailsPresenterTests.swift */,
+				50195F8A22B8B54C00D0D319 /* DetailsInteractorTests.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -1091,6 +1094,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50195F8B22B8B54C00D0D319 /* DetailsInteractorTests.swift in Sources */,
 				502CD29822B73A0400EACFFC /* MapInteractorTests.swift in Sources */,
 				50195F8522B82B5800D0D319 /* MockTipsBuilder.swift in Sources */,
 				502CD28E22B70E4300EACFFC /* MapRouterTests.swift in Sources */,
