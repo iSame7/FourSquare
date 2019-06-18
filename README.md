@@ -31,11 +31,19 @@ Using this application, a user should be able to see the restaurant around his/h
 *Details*:
 
 - When tapping an item from map screen, user should be able to see deetails screen that has some informations about the selected venue. it has a beautiful UItableView steaky header/Parralax view and some details like venue rating, address, photos, tips. 
-Note: due to Foursquare API rate limiting based on the account type which is free in this case we only get 1 tip, and no details like usersCount,checkinsCount and visitsCount wo some details will be missing in the Rating cell. 
+
+* Note: due to Foursquare API rate limiting based on the account type which is free in this case we only get 1 tip, and no details like usersCount,checkinsCount and visitsCount wo some details will be missing in the Rating cell. 
 
 *Tips*:
 
 - When tapping an item from tips list, user should see tips screen presented with a beautifl animation like the App store app transitions. each tip has a user name, photo, created date and text. this tips screen also has a steacky/parallax view for UITableView.
+
+**Features**
+* Request retrier: if a request fail due to server error the app will retry that request again for 3 times each 1 second. Thanks to Alamofire's RequestRetrier, please check NetworkRequestRetrier. 
+
+* Rechability checker: if the device was offline and the app faild to make a request it will show in-app message to warn the user that there is not internet connection. once the device is online again the app automatically will retry the request. 
+
+* Image viewer: if a venue has photos in the details screen user wil be able to browse these photos with cool animations/transitions.
 
 ## Installation
 
