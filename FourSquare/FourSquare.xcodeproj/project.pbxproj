@@ -80,7 +80,6 @@
 		50327BF222AF186700166098 /* DetailsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BF122AF186700166098 /* DetailsResponse.swift */; };
 		50327BF622AF1A0200166098 /* FoursquareError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BF522AF1A0200166098 /* FoursquareError.swift */; };
 		5039305F2252B273004207C0 /* MapViewable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5039305E2252B273004207C0 /* MapViewable.swift */; };
-		503930622252B2D1004207C0 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503930612252B2D1004207C0 /* MapViewModel.swift */; };
 		503930642252B33D004207C0 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503930632252B33D004207C0 /* Venue.swift */; };
 		503930662252B38E004207C0 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503930652252B38E004207C0 /* Contact.swift */; };
 		503930682252B3C4004207C0 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 503930672252B3C4004207C0 /* Location.swift */; };
@@ -221,7 +220,6 @@
 		50327BF122AF186700166098 /* DetailsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsResponse.swift; sourceTree = "<group>"; };
 		50327BF522AF1A0200166098 /* FoursquareError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoursquareError.swift; sourceTree = "<group>"; };
 		5039305E2252B273004207C0 /* MapViewable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewable.swift; sourceTree = "<group>"; };
-		503930612252B2D1004207C0 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		503930632252B33D004207C0 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		503930652252B38E004207C0 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		503930672252B3C4004207C0 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
@@ -410,9 +408,9 @@
 		502C30392249A59200D8BD1B /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				50327BD322AE8DD300166098 /* Tips */,
 				502C303A2249A6ED00D8BD1B /* Map */,
 				502C303B2249A6F200D8BD1B /* Details */,
+				50327BD322AE8DD300166098 /* Tips */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -505,7 +503,6 @@
 			children = (
 				502C30442249AA0B00D8BD1B /* MapPresenting.swift */,
 				502C30462249AA3B00D8BD1B /* MapPresenter.swift */,
-				503930612252B2D1004207C0 /* MapViewModel.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -1059,7 +1056,6 @@
 				5029DBF322A45B3A00A116EE /* HairlineView.swift in Sources */,
 				502CD28622B6D50F00EACFFC /* DeviceManager.swift in Sources */,
 				5064D887229AD3E000BDFD32 /* UINavigationController+NavigationControlling.swift in Sources */,
-				503930622252B2D1004207C0 /* MapViewModel.swift in Sources */,
 				5039306C2252B412004207C0 /* Delivery.swift in Sources */,
 				50327BE322AE906800166098 /* Tip.swift in Sources */,
 				50327BEC22AECD0C00166098 /* Transition.swift in Sources */,
@@ -1289,8 +1285,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://api.foursquare.com/v2";
-				CLIENT_ID = V1U04101AYVMPWT2IBCL5HB5TZ2MSJVYB4HYJVRHK1KFMIYE;
-				CLIENT_SECRET = M2AU4OU3W4SJUE32V21JOTNUP0NLQHLM53H2XZRIXAV4WGZ2;
+				CLIENT_ID = UABVQ5ZYSWY533EJN5K5QBA2Q2ZPG1OXY4UOPAAPOGZ51QBI;
+				CLIENT_SECRET = XSTVDDQ0CCQCIWJGY3UFZV2MCJ40HWMBILXUAKIYMCCDJV0Z;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U7YW5472M;
 				INFOPLIST_FILE = FourSquare/Info.plist;
@@ -1311,8 +1307,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				BASE_URL = "https://api.foursquare.com/v2";
-				CLIENT_ID = V1U04101AYVMPWT2IBCL5HB5TZ2MSJVYB4HYJVRHK1KFMIYE;
-				CLIENT_SECRET = M2AU4OU3W4SJUE32V21JOTNUP0NLQHLM53H2XZRIXAV4WGZ2;
+				CLIENT_ID = UABVQ5ZYSWY533EJN5K5QBA2Q2ZPG1OXY4UOPAAPOGZ51QBI;
+				CLIENT_SECRET = XSTVDDQ0CCQCIWJGY3UFZV2MCJ40HWMBILXUAKIYMCCDJV0Z;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7U7YW5472M;
 				INFOPLIST_FILE = FourSquare/Info.plist;

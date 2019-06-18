@@ -24,7 +24,7 @@ class DetailsPresenterTests: XCTestCase {
     }
     
     func testGetVenueDetailsSuccessfully() {
-        sut.getVenueDetails(venueId: "4f019124a69d45461f2458e7")
+        sut.getVenueDetails(venueId: "4f019124a69d45461f2458e7", venuePhotoURL: nil)
         XCTAssertNotNil(mockDetailsViewController.viewModel)
         XCTAssertNotNil(mockDetailsViewController.viewModel?.venue)
         XCTAssertEqual(mockDetailsViewController.viewModel?.venue.name, "Starbucks")

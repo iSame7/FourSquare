@@ -15,7 +15,7 @@ class DetailsPresenter: DetailsPresenting {
     var interactor: DetailsInteracting?
     let mapURLHandler: MapURLHandling
     let router: DetailsRouting
-
+    
     init(view: DetailsViewable, interactor: DetailsInteracting?, mapURLHandler: MapURLHandling, router: DetailsRouting) {
         self.view = view
         self.interactor = interactor
@@ -23,10 +23,10 @@ class DetailsPresenter: DetailsPresenting {
         self.router = router
     }
 
-    func getVenueDetails(venueId: String) {
+    func getVenueDetails(venueId: String, venuePhotoURL: String?) {
         interactor?.fetchVenueDetails(venueId: venueId, completion: { [weak self] (venue, error) in
             if let venue = venue {
-                self?.view?.updateWith(viewModel: DetailsViewController.ViewModel(venue: venue, venuePhotoURL: nil))
+                self?.view?.updateWith(viewModel: DetailsViewController.ViewModel(venue: venue, venuePhotoURL: venuePhotoURL))
             } else if let error = error {
                 self?.view?.updateWith(error: error)
             }

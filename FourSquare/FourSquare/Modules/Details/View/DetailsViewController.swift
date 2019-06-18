@@ -29,7 +29,7 @@ class DetailsViewController: UIViewController {
         setUpTableView()
         
         if let viewModel = viewModel {
-            presenter?.getVenueDetails(venueId: viewModel.venue.id)
+            presenter?.getVenueDetails(venueId: viewModel.venue.id, venuePhotoURL: viewModel.venuePhotoURL)
         }
     }
     

@@ -18,7 +18,7 @@ class TipsPresenterTests: XCTestCase {
     
     // MARK:- Test life cycle
     override func setUp() {
-        sut = TipsPresenter(view: mockTipsViewController, interactor: nil, router: mockTipsRouter)
+        sut = TipsPresenter(view: mockTipsViewController, router: mockTipsRouter)
     }
     
     func testTipsModuleIsDismissed() {

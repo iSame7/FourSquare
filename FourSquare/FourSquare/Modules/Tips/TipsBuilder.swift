@@ -36,7 +36,7 @@ class TipsBuilder: TipsBuilding {
         }).initCompleted({ (r, view) in
             if let tipsViewController = view as? TipsViewController {
                 tipsViewController.presenter = r.resolve(TipsPresenting.self)!
-                tipsViewController.update(with: TipsViewController.ViewModel(venuImageURL: venuePhotoURL, tips: tips, title: "", description: ""))
+                tipsViewController.update(with: TipsViewController.ViewModel(venuImageURL: venuePhotoURL, tips: tips, title: "Tips", description: ""))
             }
         }).inObjectScope(.container)
     }

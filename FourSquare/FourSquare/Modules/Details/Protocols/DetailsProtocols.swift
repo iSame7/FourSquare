@@ -27,7 +27,7 @@ protocol DetailsBuilding: class {
 
 //MARK: Presenter -
 protocol DetailsPresenting: class {
-    func getVenueDetails(venueId: String) 
+    func getVenueDetails(venueId: String, venuePhotoURL: String?) 
     func showMap(type: MapType, location: Location)
     func showTipsViewController(tips: [TipItem], venuePhotoURL: String?)
     func dismiss() 
