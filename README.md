@@ -46,6 +46,15 @@ Using this application, a user should be able to see the restaurant around his/h
 
 * Image viewer: if a venue has photos in the details screen user wil be able to browse these photos with cool animations/transitions.
 
+* Map panning: App will load more restaurants by panning on the map.
+
+**Improvements**
+* Increase unit test code coverage
+* Add loading state for details screen by using shimmer effect something like that:
+[LoadingShimmer](https://github.com/jogendra/LoadingShimmer)
+* Add navigation bar to details screen with nice little animation when scrolling table view. 
+* optimize map screen to work more somthly with LOTS OF annotations.
+
 ## Installation
 
 Just clone the repo or download it in zip-file, Open the project in Xcode then test it on your iOS device or iOS simulator.
