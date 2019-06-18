@@ -20,7 +20,6 @@ class TipsBuilder: TipsBuilding {
     
     func buildModuleWith(tips: [TipItem], venuePhotoURL: String?) -> FourSquare.Module? {
         registerView(with: tips, venuePhotoURL: venuePhotoURL)
-        registerInteractor()
         registerMapURLHandler()
         registerRouter()
         registerPresenter()
@@ -49,17 +48,7 @@ class TipsBuilder: TipsBuilding {
     }
     func registerPresenter() {
         container.register(TipsPresenting.self, factory: { r in
-            TipsPresenter(view: r.resolve(TipsViewable.self)!, interactor: r.resolve(TipsInteracting.self)!, router: r.resolve(TipsRouting.self)!)
-        }).inObjectScope(.container)
-    }
-    
-    func registerInteractor() {
-        container.register(TipsInteracting.self, factory: { r in
-            TipsInteractor()
-        }).initCompleted ({ (r, interactor) in
-            if let tipsInteractor = interactor as? TipsInteractor {
-                tipsInteractor.presenter = r.resolve(TipsPresenting.self)
-            }
+            TipsPresenter(view: r.resolve(TipsViewable.self)!, router: r.resolve(TipsRouting.self)!)
         }).inObjectScope(.container)
     }
     

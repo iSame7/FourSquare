@@ -10,12 +10,10 @@
 
 class TipsPresenter: TipsPresenting {
     weak private var view: TipsViewable?
-    var interactor: TipsInteracting?
     let router: TipsRouting
     
-    init(view: TipsViewable, interactor: TipsInteracting?, router: TipsRouting) {
+    init(view: TipsViewable, router: TipsRouting) {
         self.view = view
-        self.interactor = interactor
         self.router = router
     }
     

@@ -73,7 +73,6 @@
 		50327BDD22AE8DDB00166098 /* TipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD622AE8DDB00166098 /* TipsViewController.swift */; };
 		50327BDE22AE8DDB00166098 /* TipsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD722AE8DDB00166098 /* TipsProtocols.swift */; };
 		50327BDF22AE8DDB00166098 /* TipsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD822AE8DDB00166098 /* TipsBuilder.swift */; };
-		50327BE022AE8DDB00166098 /* TipsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BD922AE8DDB00166098 /* TipsInteractor.swift */; };
 		50327BE322AE906800166098 /* Tip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BE222AE906800166098 /* Tip.swift */; };
 		50327BEC22AECD0C00166098 /* Transition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BEB22AECD0C00166098 /* Transition.swift */; };
 		50327BEE22AED6A000166098 /* Presentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50327BED22AED6A000166098 /* Presentable.swift */; };
@@ -215,7 +214,6 @@
 		50327BD622AE8DDB00166098 /* TipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsViewController.swift; sourceTree = "<group>"; };
 		50327BD722AE8DDB00166098 /* TipsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsProtocols.swift; sourceTree = "<group>"; };
 		50327BD822AE8DDB00166098 /* TipsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsBuilder.swift; sourceTree = "<group>"; };
-		50327BD922AE8DDB00166098 /* TipsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsInteractor.swift; sourceTree = "<group>"; };
 		50327BE222AE906800166098 /* Tip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tip.swift; sourceTree = "<group>"; };
 		50327BEB22AECD0C00166098 /* Transition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transition.swift; sourceTree = "<group>"; };
 		50327BED22AED6A000166098 /* Presentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presentable.swift; sourceTree = "<group>"; };
@@ -603,7 +601,6 @@
 				50327BD622AE8DDB00166098 /* TipsViewController.swift */,
 				50327BD722AE8DDB00166098 /* TipsProtocols.swift */,
 				50327BD822AE8DDB00166098 /* TipsBuilder.swift */,
-				50327BD922AE8DDB00166098 /* TipsInteractor.swift */,
 			);
 			path = Tips;
 			sourceTree = "<group>";
@@ -1067,7 +1064,6 @@
 				50327BE322AE906800166098 /* Tip.swift in Sources */,
 				50327BEC22AECD0C00166098 /* Transition.swift in Sources */,
 				5029DBE822A417B100A116EE /* RatingUITableViewCell.swift in Sources */,
-				50327BE022AE8DDB00166098 /* TipsInteractor.swift in Sources */,
 				5009869D22A05EB00029AA13 /* HeaderView.swift in Sources */,
 				50E2799122AD7992006A0634 /* PhotoGalleryLayout.swift in Sources */,
 				50868152229344D40055B0A1 /* Photo.swift in Sources */,

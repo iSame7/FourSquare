@@ -29,12 +29,6 @@ protocol TipsPresenting: class {
     func dismiss()
 }
 
-//MARK: Interactor -
-protocol TipsInteracting: class {
-
-  var presenter: TipsPresenting?  { get set }
-}
-
 //MARK: View -
 protocol TipsViewable: class {
 
