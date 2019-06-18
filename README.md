@@ -135,7 +135,7 @@ By the way I've created an opens source tool that automate the process of genera
 You can download it now:
 
 * [ViperCode](https://github.com/iSame7/ViperCode)
-
+* [VIPER-Module](https://github.com/iSame7/VIPER-Module)
 
 # Dependency Injection:
 
