@@ -74,7 +74,7 @@ extension MapViewController: MapViewable {
         addAnnotationsToMap(venues: model)
         for venue in venues {
             print("get photo for venueId: \(venue.id)")
-//            presenter.getPhotos(venueId: venue.id)
+            presenter.getPhotos(venueId: venue.id)
         }
         collectionView.reloadData()
     }
