@@ -6,6 +6,6 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
-protocol MapRoutable: class {
+protocol MapRoutting: class {
 func navigateToDetailsModule(navController: NavigationControlling?, venue: Venue, venuePhotoURL: String?)
 }
