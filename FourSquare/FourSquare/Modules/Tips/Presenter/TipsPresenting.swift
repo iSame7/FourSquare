@@ -7,5 +7,7 @@
 //
 
 protocol TipsPresenting: class {
+    func buildVenueTableHeaderViewModel(title: String, description: String, imageURL: String?) -> VenueUITableHeaderView.ViewModel
+    func buildTipTableCellViewModel(userName: String, userImageURL: String, createdAt: String, tipText: String) -> TipTableViewCell.ViewModel
     func dismiss()
 }

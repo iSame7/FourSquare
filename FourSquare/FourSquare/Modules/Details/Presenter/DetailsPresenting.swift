@@ -9,6 +9,11 @@
 protocol DetailsPresenting: class {
     func getVenueDetails(venueId: String, venuePhotoURL: String?)
     func showMap(type: MapType, location: Location)
-    func showTipsViewController(tips: [TipItem], venuePhotoURL: String?)
+    func showTipsViewController()
+    func buildVenueTableHeaderViewModel() -> VenueUITableHeaderView.ViewModel?
+    func buildRatingTableViewCellViewModel() -> RatingUITableViewCell.ViewModel?
+    func buildAddressTableViewCellViewModel() -> AddressTableViewCell.ViewModel?
+    func buildPhotoGalleryTableViewCellViewModel() -> PhotoGalleryTableViewCell.ViewModel?
+    func buildtipsTableViewCellViewModel() -> TipsTableViewCell.ViewModel?
     func dismiss()
 }

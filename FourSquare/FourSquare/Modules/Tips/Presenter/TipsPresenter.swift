@@ -17,6 +17,14 @@ class TipsPresenter: TipsPresenting {
         self.router = router
     }
     
+    func buildVenueTableHeaderViewModel(title: String, description: String, imageURL: String?) -> VenueUITableHeaderView.ViewModel {
+        return VenueUITableHeaderView.ViewModel(title: title, description: description, imageURL: imageURL)
+    }
+    
+    func buildTipTableCellViewModel(userName: String, userImageURL: String, createdAt: String, tipText: String) -> TipTableViewCell.ViewModel {
+        return TipTableViewCell.ViewModel(userName: userName, userImageURL: userImageURL, createdAt: createdAt, tipText: tipText)
+    }
+    
     func dismiss() {
         if let tipsViewController = view as? TipsViewController {
             router.navigateToDetailsModule(viewController: tipsViewController)

@@ -15,6 +15,7 @@ class DetailsPresenter: DetailsPresenting {
     var interactor: DetailsInteracting?
     let mapURLHandler: MapURLHandling
     let router: DetailsRouting
+    private var viewModel: DetailsViewController.ViewModel?
     
     init(view: DetailsViewable, interactor: DetailsInteracting?, mapURLHandler: MapURLHandling, router: DetailsRouting) {
         self.view = view
@@ -22,11 +23,13 @@ class DetailsPresenter: DetailsPresenting {
         self.mapURLHandler = mapURLHandler
         self.router = router
     }
-
+    
     func getVenueDetails(venueId: String, venuePhotoURL: String?) {
         interactor?.fetchVenueDetails(venueId: venueId, completion: { [weak self] (venue, error) in
             if let venue = venue {
-                self?.view?.updateWith(viewModel: DetailsViewController.ViewModel(venue: venue, venuePhotoURL: venuePhotoURL))
+                let viewModel = DetailsViewController.ViewModel(venue: venue, venuePhotoURL: venuePhotoURL)
+                self?.viewModel = viewModel
+                self?.view?.updateWith(viewModel: viewModel)
             } else if let error = error {
                 self?.view?.updateWith(error: error)
             }
@@ -37,15 +40,49 @@ class DetailsPresenter: DetailsPresenting {
         mapURLHandler.openMap(location: location, type: type)
     }
     
-    func showTipsViewController(tips: [TipItem], venuePhotoURL: String?) {
-        guard let detailsViewController = view as? UIViewController  else { return }
+    func showTipsViewController() {
+        guard let detailsViewController = view as? UIViewController, let viewModel = viewModel, let groups = viewModel.venue.tips?.groups, let tips = groups.first?.items  else { return }
+        
+        router.navigateToTipsModule(viewController: detailsViewController, tips: tips, venuePhotoURL: viewModel.venuePhotoURL)
+    }
+    
+    func buildVenueTableHeaderViewModel() -> VenueUITableHeaderView.ViewModel? {
+        guard let viewModel = viewModel, let category = viewModel.venue.categories.first else { return nil }
+        
+        return VenueUITableHeaderView.ViewModel(title: viewModel.venue.name, description: category.name, imageURL: viewModel.venuePhotoURL)
+    }
+    
+    func buildRatingTableViewCellViewModel() -> RatingUITableViewCell.ViewModel? {
+        guard let viewModel = viewModel else { return nil }
+        
+        return RatingUITableViewCell.ViewModel(rating: viewModel.venue.rating ?? 0.0, visitorsCount: Int(viewModel.venue.stats?.visitsCount ?? 0), likesCount: viewModel.venue.likes?.count ?? 0, checkInsCount: Int(viewModel.venue.stats?.checkinsCount ?? 0), tipCount: viewModel.venue.stats?.tipCount ?? 0)
+        
+    }
+    
+    func buildAddressTableViewCellViewModel() -> AddressTableViewCell.ViewModel? {
+        guard let viewModel = viewModel else { return nil }
+        
+        let categories = viewModel.venue.categories.map{$0.name}
+        return AddressTableViewCell.ViewModel(address: viewModel.venue.location.address ?? "-", categories: categories.joined(separator: ", "), hours: viewModel.venue.hours?.status ?? "-", postalCode: viewModel.venue.location.postalCode ?? "-")
+    }
+    
+    
+    func buildPhotoGalleryTableViewCellViewModel() -> PhotoGalleryTableViewCell.ViewModel? {
+        guard let viewModel = viewModel, let groups = viewModel.venue.photos?.groups, let photos = groups[1].items else { return nil }
 
-        router.navigateToTipsModule(viewController: detailsViewController, tips: tips, venuePhotoURL: venuePhotoURL)
+        return PhotoGalleryTableViewCell.ViewModel(photos: photos)
+    }
+    
+    func buildtipsTableViewCellViewModel() -> TipsTableViewCell.ViewModel? {
+        guard let viewModel = viewModel, let groups = viewModel.venue.tips?.groups, let tips = groups.first?.items else { return nil }
+        
+        return TipsTableViewCell.ViewModel(tips: tips)
+
     }
     
     func dismiss() {
         guard let detailsViewController = view as? UIViewController else { return }
-
+        
         router.navigateToMapModule(navController: detailsViewController.navigationController)
     }
 }

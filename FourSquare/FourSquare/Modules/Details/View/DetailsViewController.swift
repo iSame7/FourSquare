@@ -37,8 +37,8 @@ class DetailsViewController: UIViewController {
         headerView = VenueUITableHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 500), backAction: { [weak self] in
             self?.presenter?.dismiss()
         })
-        if let viewModel = viewModel, let category = viewModel.venue.categories.first {
-            headerView?.configure(with: VenueUITableHeaderView.ViewModel(title: viewModel.venue.name, description: category.name, imageURL: viewModel.venuePhotoURL))
+        if let viewModel = presenter?.buildVenueTableHeaderViewModel() {
+            headerView?.configure(with: viewModel)
         }
     }
     
@@ -134,15 +134,14 @@ extension DetailsViewController: UITableViewDataSource {
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RatingCell") as! RatingUITableViewCell
-            if let viewModel = viewModel {
-                cell.setup(with: RatingUITableViewCell.ViewModel(rating: viewModel.venue.rating ?? 0.0, visitorsCount: Int(viewModel.venue.stats?.visitsCount ?? 0), likesCount: viewModel.venue.likes?.count ?? 0, checkInsCount: Int(viewModel.venue.stats?.checkinsCount ?? 0), tipCount: viewModel.venue.stats?.tipCount ?? 0))
+            if let viewModel = presenter?.buildRatingTableViewCellViewModel() {
+                cell.setup(with: viewModel)
             }
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell") as! AddressTableViewCell
-            if let viewModel = viewModel {
-                let categories = viewModel.venue.categories.map{$0.name}
-                cell.setup(with: AddressTableViewCell.ViewModel(address: viewModel.venue.location.address ?? "-", categories: categories.joined(separator: ", "), hours: viewModel.venue.hours?.status ?? "-", postalCode: viewModel.venue.location.postalCode ?? "-"))
+            if let viewModel = presenter?.buildAddressTableViewCellViewModel() {
+                cell.setup(with: viewModel)
             }
             return cell
         } else if indexPath.row == 2 {
@@ -150,23 +149,23 @@ extension DetailsViewController: UITableViewDataSource {
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGalleryCell") as! PhotoGalleryTableViewCell
-            if let viewModel = viewModel, let groups = viewModel.venue.photos?.groups, let photos = groups[1].items {
-                cell.setup(with: PhotoGalleryTableViewCell.ViewModel(photos: photos), imageSelectionHandler: { [weak self] (galleryPreview) in
+            if let viewModel = presenter?.buildPhotoGalleryTableViewCellViewModel() {
+                cell.setup(with: viewModel, imageSelectionHandler: { [weak self] (galleryPreview) in
                     self?.present(galleryPreview, animated: true, completion: nil)
                 })
             }
             return cell
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TipsCell") as! TipsTableViewCell
-            if let viewModel = viewModel, let groups = viewModel.venue.tips?.groups, let tips = groups.first?.items {
-                cell.setup(with: TipsTableViewCell.ViewModel(tips: tips)) { [weak self] in
+            if let viewModel = presenter?.buildtipsTableViewCellViewModel() {
+                cell.setup(with: viewModel) { [weak self] in
                     tableView.deselectRow(at: indexPath, animated: true)
                     
                     guard let `self` = self else { return }
                     let a = tableView.convert(cell.frame, to: tableView.superview)
                     self.transition.startingFrame = CGRect(x: a.minX+15, y: a.minY+15, width: 375 / 414 * self.view.frame.width - 30, height: 408 / 736 * self.view.frame.height - 30)
                     
-                    self.presenter?.showTipsViewController(tips: tips, venuePhotoURL: viewModel.venuePhotoURL)
+                    self.presenter?.showTipsViewController()
                 }
             }
 

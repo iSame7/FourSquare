@@ -120,7 +120,7 @@ private class MockMapInteractor: MapInteracting {
     }
 }
 
-private class MockRouter: MapRoutable {
+private class MockRouter: MapRoutting {
     var didGoToDetailsModule = false
     func navigateToDetailsModule(navController: NavigationControlling?, venue: Venue, venuePhotoURL: String?) {
         didGoToDetailsModule = true
