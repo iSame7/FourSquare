@@ -9,6 +9,7 @@ target 'FourSquare' do
   pod 'Swinject', '~> 2.1'
   pod 'Alamofire', '~> 4.8.0'
   pod 'Nuke', '7.6'
+  pod 'LoadingShimmer'
 
   target 'FourSquareTests' do
     inherit! :search_paths

@@ -6,4 +6,7 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
-import Foundation
+protocol DetailsInteracting: class {
+    var presenter: DetailsPresenting?  { get set }
+    func fetchVenueDetails(venueId: String, completion: @escaping (Venue?, FoursquareError?) -> Void)
+}

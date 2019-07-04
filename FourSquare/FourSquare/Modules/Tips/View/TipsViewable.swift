@@ -6,4 +6,7 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
-import Foundation
+protocol TipsViewable: class {
+    
+    var presenter: TipsPresenting?  { get set }
+}

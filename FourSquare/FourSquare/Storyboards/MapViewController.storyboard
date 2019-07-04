@@ -234,11 +234,20 @@
                                                     <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rated - out of 10 based on - visitor" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-Hy-qJ0">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MHM-Hy-qJ0">
                                                     <rect key="frame" x="14.999999999999986" y="28" width="238.66666666666663" height="18"/>
+                                                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="238.66999999999999" id="Hky-TG-SNq"/>
+                                                        <constraint firstAttribute="height" constant="18" id="jXf-hr-yZl"/>
+                                                        <constraint firstAttribute="height" constant="18" id="rgs-Q0-yP2"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shimmerAnimation" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSc-oA-Hob">
                                                     <rect key="frame" x="41" y="59" width="114" height="114"/>
@@ -255,6 +264,9 @@
                                                         <constraint firstItem="wtr-KC-EZf" firstAttribute="centerX" secondItem="dSc-oA-Hob" secondAttribute="centerX" id="Sqh-Rg-HRA"/>
                                                         <constraint firstItem="wtr-KC-EZf" firstAttribute="centerY" secondItem="dSc-oA-Hob" secondAttribute="centerY" id="fhk-2W-kdt"/>
                                                     </constraints>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shimmerAnimation" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="zGF-rE-uqb">
                                                     <rect key="frame" x="205" y="82" width="133" height="2"/>
@@ -271,25 +283,40 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <color key="progressTintColor" red="1" green="0.39147777290000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </progressView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="- % likes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfz-Zr-KAB">
-                                                    <rect key="frame" x="205" y="63" width="88" height="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfz-Zr-KAB">
+                                                    <rect key="frame" x="205" y="63" width="134" height="17"/>
+                                                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="17" id="jVf-aR-ezG"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shimmerAnimation" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="-% tips" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf8-aO-E4e">
-                                                    <rect key="frame" x="205" y="94" width="88" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pf8-aO-E4e">
+                                                    <rect key="frame" x="205" y="94" width="133" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shimmerAnimation" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="- % Check in" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQq-VH-g6u">
-                                                    <rect key="frame" x="206" y="127" width="77" height="16"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RQq-VH-g6u">
+                                                    <rect key="frame" x="206" y="127" width="132" height="16"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" red="0.96862745098039216" green="0.96862745098039216" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="shimmerAnimation" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -297,8 +324,8 @@
                                                 <constraint firstItem="gfz-Zr-KAB" firstAttribute="leading" secondItem="dSc-oA-Hob" secondAttribute="trailing" constant="50" id="6N6-Ox-Ebd"/>
                                                 <constraint firstItem="ZKZ-zf-GZU" firstAttribute="top" secondItem="Vya-5C-yLl" secondAttribute="top" constant="9" id="B19-wQ-WdC"/>
                                                 <constraint firstItem="MHM-Hy-qJ0" firstAttribute="leading" secondItem="Vya-5C-yLl" secondAttribute="leadingMargin" id="IYa-W6-3Py"/>
-                                                <constraint firstAttribute="trailing" secondItem="gfz-Zr-KAB" secondAttribute="trailing" constant="82" id="NdH-kY-ZJN"/>
-                                                <constraint firstItem="gfz-Zr-KAB" firstAttribute="top" secondItem="MHM-Hy-qJ0" secondAttribute="bottom" constant="17" id="RdI-49-9O6"/>
+                                                <constraint firstAttribute="trailing" secondItem="gfz-Zr-KAB" secondAttribute="trailing" constant="36" id="NdH-kY-ZJN"/>
+                                                <constraint firstItem="gfz-Zr-KAB" firstAttribute="top" secondItem="MHM-Hy-qJ0" secondAttribute="bottom" constant="17" id="bjS-rP-adK"/>
                                                 <constraint firstItem="ZKZ-zf-GZU" firstAttribute="leading" secondItem="Vya-5C-yLl" secondAttribute="leading" constant="15" id="bqJ-5F-q6K"/>
                                                 <constraint firstAttribute="bottom" secondItem="ZKZ-zf-GZU" secondAttribute="bottom" constant="168.33333333333331" id="fej-4m-f3Y"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="dSc-oA-Hob" secondAttribute="bottom" constant="10" id="fp0-pV-aTw"/>
@@ -457,7 +484,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qSf-5k-Cvw">
-                                                    <rect key="frame" x="0.0" y="44.000000000000007" width="375" height="66.666666666666686"/>
+                                                    <rect key="frame" x="0.0" y="44" width="375" height="67"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <collectionViewLayout key="collectionViewLayout" id="FqO-8r-ryf" customClass="PhotoGalleryLayout" customModule="FourSquare" customModuleProvider="target"/>
                                                     <cells/>

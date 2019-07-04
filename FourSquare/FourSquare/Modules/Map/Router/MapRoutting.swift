@@ -7,5 +7,5 @@
 //
 
 protocol MapRoutting: class {
-func navigateToDetailsModule(navController: NavigationControlling?, venue: Venue, venuePhotoURL: String?)
+    func navigateToDetailsModule(navController: NavigationControlling?, venue: Venue, venuePhotoURL: String?)
 }

@@ -54,7 +54,7 @@ class MapBuilder: MapBuilding {
     
     private func registerPresenter() {
         container.register(MapPresenting.self, factory: { r in
-            MapPresenter(view: r.resolve(MapViewable.self), mapInteractor: r.resolve(MapInteracting.self)!, router: r.resolve(MapRoutable.self)!)
+            MapPresenter(view: r.resolve(MapViewable.self), mapInteractor: r.resolve(MapInteracting.self)!, router: r.resolve(MapRoutting.self)!)
         }).inObjectScope(.container)
     }
     
@@ -97,7 +97,7 @@ class MapBuilder: MapBuilding {
     }
     
     func registerRouter() {
-        container.register(MapRoutable.self, factory: { r in
+        container.register(MapRoutting.self, factory: { r in
             MapRouter(detailsModuleBuilder: r.resolve(DetailsBuilding.self))
         }).inObjectScope(.container)
     }

@@ -6,4 +6,8 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
-import Foundation
+protocol DetailsViewable: class {
+    var presenter: DetailsPresenting?  { get set }
+    func updateWith(viewModel: DetailsViewController.ViewModel)
+    func updateWith(error: FoursquareError)
+}

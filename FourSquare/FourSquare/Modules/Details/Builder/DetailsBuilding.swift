@@ -6,4 +6,6 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
-import Foundation
+protocol DetailsBuilding: class {
+    func buildModuleWith(venue: Venue, venuePhotoURL: String?) -> FourSquare.Module?
+}

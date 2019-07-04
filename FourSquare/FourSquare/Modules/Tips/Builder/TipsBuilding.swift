@@ -6,4 +6,6 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
-import Foundation
+protocol TipsBuilding: class {
+    func buildModuleWith(tips: [TipItem], venuePhotoURL: String?) -> FourSquare.Module?
+}

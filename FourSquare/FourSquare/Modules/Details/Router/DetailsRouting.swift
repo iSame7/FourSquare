@@ -6,4 +6,7 @@
 //  Copyright © 2019 VanMoof. All rights reserved.
 //
 
-import Foundation
+protocol DetailsRouting: class {
+    func navigateToTipsModule(viewController: Presentable?, tips: [TipItem], venuePhotoURL: String?)
+    func navigateToMapModule(navController: NavigationControlling?)
+}

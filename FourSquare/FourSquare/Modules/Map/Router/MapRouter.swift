@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class MapRouter: MapRoutable {
+class MapRouter: MapRoutting {
     private weak var detailsModuleBuilder: DetailsBuilding?
     weak var navController: NavigationControlling?
 
