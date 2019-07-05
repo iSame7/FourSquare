@@ -10,16 +10,16 @@
 
 import UIKit
 
-class MockDetailsViewController: DetailsViewController {
+class MockDetailsViewController: Presentable {
     var isPresented = false
     var isDismissed = false
     var viewControllerPresented: UIViewController?
     
-    override func dismiss(animated flag: Bool, completion: (() -> Void)?) {
+    func dismiss(animated flag: Bool, completion: (() -> Void)?) {
         isDismissed = true
     }
     
-    override func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
+    func present(_ viewControllerToPresent: UIViewController, animated flag: Bool, completion: (() -> Void)? = nil) {
         isPresented = true
         viewControllerPresented = viewControllerToPresent
     }

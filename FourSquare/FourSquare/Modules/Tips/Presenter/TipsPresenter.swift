@@ -26,7 +26,7 @@ class TipsPresenter: TipsPresenting {
     }
     
     func dismiss() {
-        if let tipsViewController = view as? TipsViewController {
+        if let tipsViewController = view as? Presentable {
             router.navigateToDetailsModule(viewController: tipsViewController)
         }
     }
