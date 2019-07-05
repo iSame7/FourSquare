@@ -1,24 +1,28 @@
 PODS:
   - Alamofire (4.8.2)
+  - LoadingShimmer (1.0.2)
   - Nuke (7.6)
   - Swinject (2.6.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.8.0)
+  - LoadingShimmer
   - Nuke (= 7.6)
   - Swinject (~> 2.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - LoadingShimmer
     - Nuke
     - Swinject
 
 SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  LoadingShimmer: 930cfb5e2f3cd65b964fd1095e22a8c470e58633
   Nuke: aa1c6a5919b543debe814530881f2fccb58c26d4
   Swinject: 48a96cda93633cf2860697b4ce76ab5db9ebaca2
 
-PODFILE CHECKSUM: dbab6b974da233d598b8b01decda22496c6e8221
+PODFILE CHECKSUM: 64e175ded0672579449b18e97a139025def270a1
 
 COCOAPODS: 1.6.1

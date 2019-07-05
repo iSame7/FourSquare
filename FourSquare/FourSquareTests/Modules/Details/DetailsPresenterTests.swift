@@ -21,6 +21,8 @@ class DetailsPresenterTests: XCTestCase {
     // MARK:- Test life cycle
     override func setUp() {
         sut = DetailsPresenter(view: mockDetailsViewController, interactor: mockDetailsInteractor, mapURLHandler: mockMapURLHandler, router: mockDetailsRouter)
+        
+        sut.getVenueDetails(venueId: "4f019124a69d45461f2458e7", venuePhotoURL: nil)
     }
     
     func testGetVenueDetailsSuccessfully() {
@@ -52,7 +54,7 @@ class DetailsPresenterTests: XCTestCase {
     }
     
     func testIsTipsModulePushedInNavigationController() {
-        sut.showTipsViewController(tips: [TipItem(createdAt: 1278634077, text: "My girlfriend dumped me after I took her on a date here... she was a skank anyway-this place awesome!", user: nil)], venuePhotoURL: nil)
+        sut.showTipsViewController()
         XCTAssertTrue(mockDetailsRouter.didNavigateToTipsModule)
     }
     
@@ -67,7 +69,7 @@ private class MockDetailsInteractor: DetailsInteracting {
     
     func fetchVenueDetails(venueId: String, completion: @escaping (Venue?, FoursquareError?) -> Void) {
         if !venueId.isEmpty {
-            let mockVenue1 = Venue(id: "4f019124a69d45461f2458e7", name: "Starbucks", contact: nil, location: Location(lat: 52.36607678472145, lng: 4.897430803910262, address: "Utrechtsestraat 9", crossStreet: nil, distance: nil, postalCode: "1017 CV", cc: nil, city: "Amsterdam", state: "North Holland", country: "Netherlands"), categories: [Category(id: "4bf58dd8d48988d16d941735", name: "Coffee Shops", pluralName: "Coffee Shops", shortName: "Coffee Shops", icon: Category.Icon(prefix: "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_", suffix: ".png"), primary: nil)], verified: false, url: nil, stats: nil, likes: nil, rating: nil, hours: nil, photos: nil, tips: nil)
+            let mockVenue1 = Venue(id: "4f019124a69d45461f2458e7", name: "Starbucks", contact: nil, location: Location(lat: 52.36607678472145, lng: 4.897430803910262, address: "Utrechtsestraat 9", crossStreet: nil, distance: nil, postalCode: "1017 CV", cc: nil, city: "Amsterdam", state: "North Holland", country: "Netherlands"), categories: [Category(id: "4bf58dd8d48988d16d941735", name: "Coffee Shops", pluralName: "Coffee Shops", shortName: "Coffee Shops", icon: Category.Icon(prefix: "https://ss3.4sqi.net/img/categories_v2/food/coffeeshop_", suffix: ".png"), primary: nil)], verified: false, url: nil, stats: nil, likes: nil, rating: nil, hours: nil, photos: nil, tips: Tips(count: 1, groups: [TipsGroup(type: "tips", name: "tips", count: 1, items: [TipItem(createdAt: 12345678, text: "nice place to visit", user: nil)])]))
             completion(mockVenue1, nil)
         } else {
             completion(nil, .noResponse)

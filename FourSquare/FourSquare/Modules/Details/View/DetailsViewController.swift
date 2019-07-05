@@ -37,8 +37,8 @@ class DetailsViewController: UIViewController {
         headerView = VenueUITableHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 500), backAction: { [weak self] in
             self?.presenter?.dismiss()
         })
-        if let viewModel = viewModel, let category = viewModel.venue.categories.first {
-            headerView?.configure(with: VenueUITableHeaderView.ViewModel(title: viewModel.venue.name, description: category.name, imageURL: viewModel.venuePhotoURL))
+        if let viewModel = presenter?.buildVenueTableHeaderViewModel() {
+            headerView?.configure(with: viewModel)
         }
     }
     
@@ -49,6 +49,11 @@ class DetailsViewController: UIViewController {
         tableView.contentInset  = UIEdgeInsets(top: 300, left: 0, bottom: 0, right: 0)
         tableView.addSubview(headerView!)
         tableView.tableFooterView = UIView()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        startAnimation()
     }
     
     func presentMapActionSheet(venue: Venue) {
@@ -129,15 +134,14 @@ extension DetailsViewController: UITableViewDataSource {
         
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "RatingCell") as! RatingUITableViewCell
-            if let viewModel = viewModel {
-                cell.setup(with: RatingUITableViewCell.ViewModel(rating: viewModel.venue.rating ?? 0.0, visitorsCount: Int(viewModel.venue.stats?.visitsCount ?? 0), likesCount: viewModel.venue.likes?.count ?? 0, checkInsCount: Int(viewModel.venue.stats?.checkinsCount ?? 0), tipCount: viewModel.venue.stats?.tipCount ?? 0))
+            if let viewModel = presenter?.buildRatingTableViewCellViewModel() {
+                cell.setup(with: viewModel)
             }
             return cell
         } else if indexPath.row == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddressCell") as! AddressTableViewCell
-            if let viewModel = viewModel {
-                let categories = viewModel.venue.categories.map{$0.name}
-                cell.setup(with: AddressTableViewCell.ViewModel(address: viewModel.venue.location.address ?? "-", categories: categories.joined(separator: ", "), hours: viewModel.venue.hours?.status ?? "-", postalCode: viewModel.venue.location.postalCode ?? "-"))
+            if let viewModel = presenter?.buildAddressTableViewCellViewModel() {
+                cell.setup(with: viewModel)
             }
             return cell
         } else if indexPath.row == 2 {
@@ -145,23 +149,23 @@ extension DetailsViewController: UITableViewDataSource {
             return cell
         } else if indexPath.row == 3 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PhotoGalleryCell") as! PhotoGalleryTableViewCell
-            if let viewModel = viewModel, let groups = viewModel.venue.photos?.groups, let photos = groups[1].items {
-                cell.setup(with: PhotoGalleryTableViewCell.ViewModel(photos: photos), imageSelectionHandler: { [weak self] (galleryPreview) in
+            if let viewModel = presenter?.buildPhotoGalleryTableViewCellViewModel() {
+                cell.setup(with: viewModel, imageSelectionHandler: { [weak self] (galleryPreview) in
                     self?.present(galleryPreview, animated: true, completion: nil)
                 })
             }
             return cell
         } else if indexPath.row == 4 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "TipsCell") as! TipsTableViewCell
-            if let viewModel = viewModel, let groups = viewModel.venue.tips?.groups, let tips = groups.first?.items {
-                cell.setup(with: TipsTableViewCell.ViewModel(tips: tips)) { [weak self] in
+            if let viewModel = presenter?.buildtipsTableViewCellViewModel() {
+                cell.setup(with: viewModel) { [weak self] in
                     tableView.deselectRow(at: indexPath, animated: true)
                     
                     guard let `self` = self else { return }
                     let a = tableView.convert(cell.frame, to: tableView.superview)
                     self.transition.startingFrame = CGRect(x: a.minX+15, y: a.minY+15, width: 375 / 414 * self.view.frame.width - 30, height: 408 / 736 * self.view.frame.height - 30)
                     
-                    self.presenter?.showTipsViewController(tips: tips, venuePhotoURL: viewModel.venuePhotoURL)
+                    self.presenter?.showTipsViewController()
                 }
             }
 
@@ -206,4 +210,70 @@ extension DetailsViewController: DetailsViewable {
         self.viewModel = viewModel
         tableView.reloadData()
     }
+    
+    func startAnimation() {
+        for animateView in getSubViewsForAnimate() {
+            animateView.clipsToBounds = true
+            let gradientLayer = CAGradientLayer()
+            gradientLayer.colors = [UIColor.clear.cgColor, UIColor.white.withAlphaComponent(0.8).cgColor, UIColor.clear.cgColor]
+            gradientLayer.startPoint = CGPoint(x: 0.7, y: 1.0)
+            gradientLayer.endPoint = CGPoint(x: 0.0, y: 0.8)
+            gradientLayer.frame = animateView.bounds
+            animateView.layer.mask = gradientLayer
+            
+            let animation = CABasicAnimation(keyPath: "transform.translation.x")
+            animation.duration = 1.5
+            animation.fromValue = -animateView.frame.size.width
+            animation.toValue = animateView.frame.size.width
+            animation.repeatCount = .infinity
+            
+            gradientLayer.add(animation, forKey: "")
+        }
+    }
+    
+    func stopAnimation() {
+        for animateView in getSubViewsForAnimate() {
+            animateView.layer.removeAllAnimations()
+            animateView.layer.mask = nil
+        }
+    }
+    
+    func getSubViewsForAnimate() -> [UIView] {
+        var obj: [UIView] = []
+        for objView in view.subviewsRecursive() {
+            obj.append(objView)
+        }
+        return obj.filter({ (obj) -> Bool in
+            obj.shimmerAnimation
+        })
+    }
 }
+
+var associateObjectValue: Int = 0
+
+// MARK: - UIView Extension
+extension UIView {
+    
+    fileprivate var isAnimate: Bool {
+        get {
+            return objc_getAssociatedObject(self, &associateObjectValue) as? Bool ?? false
+        }
+        set {
+            return objc_setAssociatedObject(self, &associateObjectValue, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+        }
+    }
+    
+    @IBInspectable var shimmerAnimation: Bool {
+        get {
+            return isAnimate
+        }
+        set {
+            self.isAnimate = newValue
+        }
+    }
+    
+    func subviewsRecursive() -> [UIView] {
+        return subviews + subviews.flatMap { $0.subviewsRecursive() }
+    }
+}
+

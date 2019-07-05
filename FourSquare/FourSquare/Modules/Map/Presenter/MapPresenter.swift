@@ -11,9 +11,9 @@ import UIKit
 class MapPresenter: MapPresenting {
     private weak var view: MapViewable?
     private let mapInteractor: MapInteracting
-    private let router: MapRoutable
+    private let router: MapRoutting
     
-    init(view: MapViewable?, mapInteractor: MapInteracting, router: MapRoutable) {
+    init(view: MapViewable?, mapInteractor: MapInteracting, router: MapRoutting) {
         self.view = view
         self.mapInteractor = mapInteractor
         self.router = router

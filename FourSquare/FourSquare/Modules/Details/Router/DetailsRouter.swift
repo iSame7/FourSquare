@@ -21,9 +21,11 @@ class DetailsRouter: DetailsRouting {
 
     func navigateToTipsModule(viewController: Presentable?, tips: [TipItem], venuePhotoURL: String?) {
         self.viewController = viewController
-        if let tipsViewController = tipsModule(tips: tips, venuePhotoURL: venuePhotoURL)?.viewController, let detailsViewController = viewController as? DetailsViewController {
+        if let tipsViewController = tipsModule(tips: tips, venuePhotoURL: venuePhotoURL)?.viewController, let detailsViewController = viewController {
             
-            tipsViewController.transitioningDelegate = detailsViewController
+            if let detailsViewController = viewController as? UIViewControllerTransitioningDelegate {
+                tipsViewController.transitioningDelegate = detailsViewController
+            }
             tipsViewController.modalPresentationStyle = .custom
             detailsViewController.present(tipsViewController, animated: true, completion: nil)
         }

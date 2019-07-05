@@ -16,10 +16,10 @@ class TipsViewController: UIViewController, TipsViewable {
     var presenter: TipsPresenting?
     var headerView: VenueUITableHeaderView?
     let screenWidth = UIScreen.main.bounds.width
-
-	override func viewDidLoad() {
+    
+    override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setUpHeader()
         setUpTableView()
     }
@@ -28,8 +28,8 @@ class TipsViewController: UIViewController, TipsViewable {
         headerView = VenueUITableHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 500), backAction: { [weak self] in
             self?.presenter?.dismiss()
         })
-        if let viewModel = viewModel {
-            headerView?.configure(with: VenueUITableHeaderView.ViewModel(title: viewModel.title, description: viewModel.description, imageURL: viewModel.venuImageURL))
+        if let presenter = presenter , let viewModel = viewModel {
+            headerView?.configure(with: presenter.buildVenueTableHeaderViewModel(title: viewModel.title, description: viewModel.description, imageURL: viewModel.venuImageURL))
         }
     }
     
@@ -40,7 +40,7 @@ class TipsViewController: UIViewController, TipsViewable {
         tableView.addSubview(headerView!)
         
         tableView.tableFooterView = UIView()
-
+        
     }
     
 }
@@ -57,8 +57,8 @@ extension TipsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TipCell") as! TipTableViewCell
-        if let tip = viewModel?.tips[indexPath.row], let user = tip.user, let userPhoto = user.photo {
-            cell.setup(with: TipTableViewCell.ViewModel(userName: user.firstName ?? "--", userImageURL: "\(userPhoto.prefix)500x500\(userPhoto.suffix)", createdAt: Double(tip.createdAt ?? 0).getDateStringFromUTC(), tipText: tip.text ?? "--"))
+        if let presenter = presenter, let tip = viewModel?.tips[indexPath.row], let user = tip.user, let userPhoto = user.photo {
+            cell.setup(with: presenter.buildTipTableCellViewModel(userName: user.firstName ?? "--", userImageURL: "\(userPhoto.prefix)500x500\(userPhoto.suffix)", createdAt: Double(tip.createdAt ?? 0).getDateStringFromUTC(), tipText: tip.text ?? "--"))
         }
         return cell
     }
